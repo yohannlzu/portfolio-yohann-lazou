@@ -438,7 +438,7 @@ main {
 .heroPhoto {
   position: relative;
   align-self: center;
-  max-width: 110px;
+  max-width: 220px;
   justify-self: end;
   margin-right: 40px;
 }
