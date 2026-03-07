@@ -477,15 +477,6 @@ main {
   object-fit: cover;
 }
 
-.heroPhoto__meta {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 12px;
-  padding: 0 4px;
-  flex-wrap: wrap;
-}
-
 .heroPhoto::after {
   content: "";
   position: absolute;
