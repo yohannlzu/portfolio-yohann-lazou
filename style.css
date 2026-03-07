@@ -438,7 +438,7 @@ main {
 .heroPhoto {
   position: relative;
   align-self: center;
-  max-width: 340px;
+  max-width: 110px;
   justify-self: end;
   margin-right: 40px;
 }
@@ -471,11 +471,9 @@ main {
 }
 
 .heroPhoto__img {
-  display: block;
   width: 100%;
   height: auto;
-  max-width: 340px;   /* limite la taille */
-  image-rendering: auto;
+  max-width: 220px;
   object-fit: cover;
 }
 
