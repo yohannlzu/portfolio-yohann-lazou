@@ -425,8 +425,8 @@ main {
 
 .hero--with-photo {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 380px);
-  gap: 28px;
+  grid-template-columns: 1fr 380px;
+  gap: 60px;
   align-items: center;
   min-height: calc(100svh - var(--sysH) - 80px);
 }
@@ -439,6 +439,8 @@ main {
   position: relative;
   align-self: center;
   max-width: 340px;
+  justify-self: end;
+  margin-right: 40px;
 }
 
 .heroPhoto__frame {
