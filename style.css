@@ -1153,12 +1153,6 @@ main {
   pointer-events: auto;
 }
 
-.drawer__backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-}
-
 .drawer__panel {
   position: absolute;
   right: 12px;
@@ -1172,6 +1166,14 @@ main {
   padding: 14px;
   display: flex;
   flex-direction: column;
+  z-index: 2; /* important */
+}
+
+.drawer__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1; /* important */
 }
 
 .drawer__head {
