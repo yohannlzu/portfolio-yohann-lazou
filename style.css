@@ -452,32 +452,31 @@ main {
   filter:
     drop-shadow(0 16px 36px rgba(0,0,0,0.45))
     drop-shadow(0 0 24px rgba(90,140,255,0.08));
-  animation: trollSpin 8s linear infinite;
+  animation: trollSpin 5.5s ease-in-out infinite;
   mix-blend-mode: lighten;
+  will-change: transform;
 }
 
 @keyframes trollSpin {
 
   0% {
-    transform: rotate(0deg) scale(1.15);
+    transform: rotate(-12deg) scale(1.15);
   }
 
   25% {
-    transform: rotate(180deg) scale(0.75);
+    transform: rotate(0deg) scale(0.95);
   }
 
   50% {
-    transform: rotate(360deg) scale(1.15);
+    transform: rotate(12deg) scale(0.75);
   }
 
-  /* rotation inverse */
-
   75% {
-    transform: rotate(180deg) scale(0.75);
+    transform: rotate(0deg) scale(0.95);
   }
 
   100% {
-    transform: rotate(0deg) scale(1.15);
+    transform: rotate(-12deg) scale(1.15);
   }
 
 }
