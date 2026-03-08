@@ -213,21 +213,6 @@ ul {
   gap: 14px;
 }
 
-.index__portrait {
-  margin-top: auto;
-  padding: 10px;
-}
-
-.index__portrait img {
-  width: 100%;
-  max-width: 160px;
-  border-radius: 14px;
-  border: 1px solid var(--line2);
-  display: block;
-  filter: contrast(1.05) brightness(0.92) saturate(0.9);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-
 .index__head .k {
   display: block;
   font-family: var(--mono);
@@ -436,6 +421,72 @@ main {
   margin: 0;
   color: var(--muted);
   line-height: 1.75;
+}
+
+.hero {
+  position: relative;
+}
+
+.heroHead {
+  position: absolute;
+  right: clamp(40px, 8vw, 140px);
+  top: 54%;
+  transform: translateY(-50%);
+  width: clamp(180px, 22vw, 320px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heroHead__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter:
+    drop-shadow(0 18px 40px rgba(0, 0, 0, 0.42))
+    drop-shadow(0 0 24px rgba(90, 140, 255, 0.08));
+  transform-origin: 50% 58%;
+  animation: trollHeadFloat 4.8s ease-in-out infinite;
+}
+
+@keyframes trollHeadFloat {
+  0% {
+    transform: rotate(-8deg) scale(0.96);
+  }
+  25% {
+    transform: rotate(4deg) scale(1.02);
+  }
+  50% {
+    transform: rotate(10deg) scale(1.06);
+  }
+  75% {
+    transform: rotate(-3deg) scale(1.01);
+  }
+  100% {
+    transform: rotate(-8deg) scale(0.96);
+  }
+}
+
+@media (max-width: 1100px) {
+  .heroHead {
+    right: 24px;
+    width: clamp(150px, 20vw, 220px);
+    top: 58%;
+  }
+}
+
+@media (max-width: 860px) {
+  .heroHead {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: min(52vw, 220px);
+    margin: 18px auto 0;
+  }
+
+  .heroHead__img {
+    animation-duration: 5.4s;
+  }
 }
 
 .btn {
