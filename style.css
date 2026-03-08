@@ -430,7 +430,7 @@ main {
 .heroHead {
   position: absolute;
   right: clamp(40px, 8vw, 140px);
-  top: 76%;
+  top: 86%;
   transform: translateY(-50%);
   width: clamp(180px, 22vw, 320px);
   pointer-events: none;
