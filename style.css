@@ -425,14 +425,20 @@ main {
 
 .hero {
   position: relative;
+  min-height: calc(100svh - var(--sysH) - 80px);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
 }
 
 .heroHead {
   position: absolute;
-  right: clamp(40px, 8vw, 140px);
-  top: 54%;
-  transform: translateY(-50%);
-  width: clamp(180px, 22vw, 320px);
+  right: clamp(40px, 9vw, 140px);
+  top: clamp(420px, 66vh, 700px);
+  width: clamp(170px, 22vw, 300px);
   pointer-events: none;
   z-index: 1;
 }
@@ -441,51 +447,58 @@ main {
   display: block;
   width: 100%;
   height: auto;
+  transform-origin: 50% 50%;
   filter:
-    drop-shadow(0 18px 40px rgba(0, 0, 0, 0.42))
+    drop-shadow(0 16px 36px rgba(0, 0, 0, 0.42))
     drop-shadow(0 0 24px rgba(90, 140, 255, 0.08));
-  transform-origin: 50% 58%;
-  animation: trollHeadFloat 4.8s ease-in-out infinite;
+  animation: headSpinPulse 6s linear infinite;
 }
 
-@keyframes trollHeadFloat {
+@keyframes headSpinPulse {
   0% {
-    transform: rotate(-8deg) scale(0.96);
+    transform: rotate(0deg) scale(1.08);
+  }
+  12.5% {
+    transform: rotate(45deg) scale(1.02);
   }
   25% {
-    transform: rotate(4deg) scale(1.02);
+    transform: rotate(90deg) scale(0.94);
+  }
+  37.5% {
+    transform: rotate(135deg) scale(0.86);
   }
   50% {
-    transform: rotate(10deg) scale(1.06);
+    transform: rotate(180deg) scale(0.78);
+  }
+  62.5% {
+    transform: rotate(225deg) scale(0.86);
   }
   75% {
-    transform: rotate(-3deg) scale(1.01);
+    transform: rotate(270deg) scale(0.94);
+  }
+  87.5% {
+    transform: rotate(315deg) scale(1.02);
   }
   100% {
-    transform: rotate(-8deg) scale(0.96);
-  }
-}
-
-@media (max-width: 1100px) {
-  .heroHead {
-    right: 24px;
-    width: clamp(150px, 20vw, 220px);
-    top: 58%;
+    transform: rotate(360deg) scale(1.08);
   }
 }
 
 @media (max-width: 860px) {
+  .hero {
+    min-height: auto;
+  }
+
   .heroHead {
     position: relative;
     right: auto;
     top: auto;
-    transform: none;
-    width: min(52vw, 220px);
-    margin: 18px auto 0;
+    width: min(44vw, 180px);
+    margin: 28px auto 0;
   }
 
   .heroHead__img {
-    animation-duration: 5.4s;
+    animation-duration: 6.5s;
   }
 }
 
