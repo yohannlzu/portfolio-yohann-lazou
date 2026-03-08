@@ -1377,3 +1377,38 @@ main {
 #work-content {
   scroll-margin-top: 90px;
 }
+
+.panel__head--company {
+  align-items: center;
+}
+
+.companyBrand {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.companyBrand__logo {
+  display: block;
+  width: clamp(140px, 18vw, 220px);
+  height: auto;
+  object-fit: contain;
+  opacity: 0.95;
+  filter: brightness(0.96) contrast(1.05);
+}
+
+@media (max-width: 700px) {
+  .panel__head--company {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .companyBrand {
+    justify-content: flex-start;
+    margin-top: 8px;
+  }
+
+  .companyBrand__logo {
+    width: 150px;
+  }
+}
