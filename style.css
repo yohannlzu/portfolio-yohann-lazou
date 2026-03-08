@@ -425,21 +425,14 @@ main {
 
 .hero {
   position: relative;
-  min-height: calc(100svh - var(--sysH) - 80px);
-}
-
-.hero__content {
-  position: relative;
-  z-index: 2;
-  max-width: 760px;
 }
 
 .heroHead {
   position: absolute;
-  right: clamp(40px, 9vw, 140px);
-  top: 60%;
+  right: clamp(40px, 8vw, 140px);
+  top: 54%;
   transform: translateY(-50%);
-  width: clamp(170px, 22vw, 300px);
+  width: clamp(180px, 22vw, 320px);
   pointer-events: none;
   z-index: 1;
 }
@@ -448,54 +441,51 @@ main {
   display: block;
   width: 100%;
   height: auto;
-  transform-origin: 50% 50%;
   filter:
-    drop-shadow(0 16px 36px rgba(0,0,0,0.45))
-    drop-shadow(0 0 24px rgba(90,140,255,0.08));
-  animation: trollSpin 5.5s ease-in-out infinite;
-  mix-blend-mode: lighten;
-  will-change: transform;
+    drop-shadow(0 18px 40px rgba(0, 0, 0, 0.42))
+    drop-shadow(0 0 24px rgba(90, 140, 255, 0.08));
+  transform-origin: 50% 58%;
+  animation: trollHeadFloat 4.8s ease-in-out infinite;
 }
 
-@keyframes trollSpin {
-
+@keyframes trollHeadFloat {
   0% {
-    transform: rotate(-12deg) scale(1.15);
+    transform: rotate(-8deg) scale(0.96);
   }
-
   25% {
-    transform: rotate(0deg) scale(0.95);
+    transform: rotate(4deg) scale(1.02);
   }
-
   50% {
-    transform: rotate(12deg) scale(0.75);
+    transform: rotate(10deg) scale(1.06);
   }
-
   75% {
-    transform: rotate(0deg) scale(0.95);
+    transform: rotate(-3deg) scale(1.01);
   }
-
   100% {
-    transform: rotate(-12deg) scale(1.15);
+    transform: rotate(-8deg) scale(0.96);
   }
+}
 
+@media (max-width: 1100px) {
+  .heroHead {
+    right: 24px;
+    width: clamp(150px, 20vw, 220px);
+    top: 58%;
+  }
 }
 
 @media (max-width: 860px) {
-  .hero {
-    min-height: auto;
-  }
-
   .heroHead {
     position: relative;
     right: auto;
     top: auto;
-    width: min(44vw, 180px);
-    margin: 28px auto 0;
+    transform: none;
+    width: min(52vw, 220px);
+    margin: 18px auto 0;
   }
 
   .heroHead__img {
-    animation-duration: 6.5s;
+    animation-duration: 5.4s;
   }
 }
 
