@@ -1390,7 +1390,6 @@ main {
 
 .companyBrand__logo {
   display: block;
-  width: clamp(140px, 18vw, 220px);
   height: auto;
   object-fit: contain;
   opacity: 0.95;
