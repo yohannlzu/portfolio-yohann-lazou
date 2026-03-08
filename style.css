@@ -437,7 +437,8 @@ main {
 .heroHead {
   position: absolute;
   right: clamp(40px, 9vw, 140px);
-  top: clamp(420px, 66vh, 700px);
+  top: 60%;
+  transform: translateY(-50%);
   width: clamp(170px, 22vw, 300px);
   pointer-events: none;
   z-index: 1;
@@ -449,39 +450,36 @@ main {
   height: auto;
   transform-origin: 50% 50%;
   filter:
-    drop-shadow(0 16px 36px rgba(0, 0, 0, 0.42))
-    drop-shadow(0 0 24px rgba(90, 140, 255, 0.08));
-  animation: headSpinPulse 6s linear infinite;
+    drop-shadow(0 16px 36px rgba(0,0,0,0.45))
+    drop-shadow(0 0 24px rgba(90,140,255,0.08));
+  animation: trollSpin 8s ease-in-out infinite;
+  mix-blend-mode: lighten;
 }
 
-@keyframes headSpinPulse {
+@keyframes trollSpin {
+
   0% {
-    transform: rotate(0deg) scale(1.08);
+    transform: rotate(0deg) scale(1.15);
   }
-  12.5% {
-    transform: rotate(45deg) scale(1.02);
-  }
+
   25% {
-    transform: rotate(90deg) scale(0.94);
+    transform: rotate(180deg) scale(0.75);
   }
-  37.5% {
-    transform: rotate(135deg) scale(0.86);
-  }
+
   50% {
-    transform: rotate(180deg) scale(0.78);
+    transform: rotate(360deg) scale(1.15);
   }
-  62.5% {
-    transform: rotate(225deg) scale(0.86);
-  }
+
+  /* rotation inverse */
+
   75% {
-    transform: rotate(270deg) scale(0.94);
+    transform: rotate(180deg) scale(0.75);
   }
-  87.5% {
-    transform: rotate(315deg) scale(1.02);
-  }
+
   100% {
-    transform: rotate(360deg) scale(1.08);
+    transform: rotate(0deg) scale(1.15);
   }
+
 }
 
 @media (max-width: 860px) {
