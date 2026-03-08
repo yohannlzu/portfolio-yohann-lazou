@@ -1414,3 +1414,15 @@ main {
     width: 150px;
   }
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.logo-sermeta {
+  max-width: 300px;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
