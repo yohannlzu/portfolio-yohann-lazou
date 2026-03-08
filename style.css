@@ -452,7 +452,7 @@ main {
   filter:
     drop-shadow(0 16px 36px rgba(0,0,0,0.45))
     drop-shadow(0 0 24px rgba(90,140,255,0.08));
-  animation: trollSpin 8s ease-in-out infinite;
+  animation: trollSpin 8s linear infinite;
   mix-blend-mode: lighten;
 }
 
