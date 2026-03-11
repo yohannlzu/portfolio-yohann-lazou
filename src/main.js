@@ -13,21 +13,26 @@ const $$ = (q, el = document) => Array.from(el.querySelectorAll(q));
 (() => {
   const el = $("#clock");
   if (!el) return;
+
   const pad = (n) => String(n).padStart(2, "0");
+
   const tick = () => {
     const d = new Date();
     el.textContent = `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
   };
+
   tick();
   setInterval(tick, 1000);
 })();
 
 /* Scroll lock */
 let locks = 0;
+
 const lockScroll = () => {
   locks++;
   document.body.classList.add("no-scroll");
 };
+
 const unlockScroll = () => {
   locks = Math.max(0, locks - 1);
   if (!locks) document.body.classList.remove("no-scroll");
@@ -90,7 +95,10 @@ const unlockScroll = () => {
 
     const y = window.scrollY + window.innerHeight * 0.35;
     let current = sections[0];
-    for (const s of sections) if (s.offsetTop <= y) current = s;
+
+    for (const s of sections) {
+      if (s.offsetTop <= y) current = s;
+    }
 
     const chapter = current?.dataset.chapter;
     if (chapter) setActive(chapter);
@@ -101,7 +109,7 @@ const unlockScroll = () => {
   window.addEventListener("resize", update);
 })();
 
-/* Interests preview: image behind hovered card */
+/* Interests preview */
 (() => {
   const section = $("#interests");
   if (!section) return;
@@ -126,10 +134,12 @@ const unlockScroll = () => {
     const url = card.getAttribute("data-img");
     const pos = card.getAttribute("data-pos") || "50% 50%";
     const bg = card.querySelector(".interest-bg");
+
     if (bg && url) {
       bg.style.backgroundImage = `url("${url}")`;
       bg.style.backgroundPosition = pos;
     }
+
     card.classList.add("is-active");
   }
 
@@ -146,7 +156,7 @@ const unlockScroll = () => {
   section.addEventListener("mouseleave", clear);
 })();
 
-/* Tabs (alternance/stage) */
+/* Tabs */
 (() => {
   const btns = $$(".tab[data-tab]");
   const panels = $$(".panel[data-panel]");
@@ -166,7 +176,7 @@ const unlockScroll = () => {
   btns.forEach((b) => b.addEventListener("click", () => set(b.dataset.tab)));
 })();
 
-/* Dithered Waves background (WebGL) */
+/* Dithered Waves background */
 (() => {
   const canvas = document.getElementById("hud");
   if (!canvas) return;
@@ -343,18 +353,32 @@ const unlockScroll = () => {
   const vsh = compile(gl.VERTEX_SHADER, vs);
   const fsh = compile(gl.FRAGMENT_SHADER, fs);
   if (!vsh || !fsh) return;
+
   gl.attachShader(prog, vsh);
   gl.attachShader(prog, fsh);
   gl.linkProgram(prog);
+
   if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
     console.error(gl.getProgramInfoLog(prog));
     return;
   }
 
   gl.useProgram(prog);
+
   const buf = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]), gl.STATIC_DRAW);
+  gl.bufferData(
+    gl.ARRAY_BUFFER,
+    new Float32Array([
+      -1, -1,
+       1, -1,
+      -1,  1,
+      -1,  1,
+       1, -1,
+       1,  1,
+    ]),
+    gl.STATIC_DRAW
+  );
 
   const posLoc = gl.getAttribLocation(prog, "position");
   gl.enableVertexAttribArray(posLoc);
@@ -379,6 +403,7 @@ const unlockScroll = () => {
     dpr = Math.min(2, window.devicePixelRatio || 1);
     const w = Math.floor(window.innerWidth * dpr);
     const h = Math.floor(window.innerHeight * dpr);
+
     if (canvas.width !== w || canvas.height !== h) {
       canvas.width = w;
       canvas.height = h;
@@ -386,18 +411,23 @@ const unlockScroll = () => {
       canvas.style.height = "100%";
       gl.viewport(0, 0, w, h);
     }
+
     gl.uniform2f(uResolution, canvas.width, canvas.height);
   }
 
   resize();
   window.addEventListener("resize", resize);
 
-  window.addEventListener("pointermove", (e) => {
-    if (!CONFIG.enableMouseInteraction) return;
-    const rect = canvas.getBoundingClientRect();
-    mouse.x = (e.clientX - rect.left) * dpr;
-    mouse.y = (e.clientY - rect.top) * dpr;
-  }, { passive: true });
+  window.addEventListener(
+    "pointermove",
+    (e) => {
+      if (!CONFIG.enableMouseInteraction) return;
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = (e.clientX - rect.left) * dpr;
+      mouse.y = (e.clientY - rect.top) * dpr;
+    },
+    { passive: true }
+  );
 
   gl.uniform1f(uWaveSpeed, CONFIG.waveSpeed);
   gl.uniform1f(uWaveFrequency, CONFIG.waveFrequency);
@@ -409,6 +439,7 @@ const unlockScroll = () => {
   gl.uniform1f(uPixelSize, CONFIG.pixelSize);
 
   const t0 = performance.now();
+
   function frame(now) {
     resize();
     const t = (now - t0) / 1000;
@@ -417,6 +448,7 @@ const unlockScroll = () => {
     gl.drawArrays(gl.TRIANGLES, 0, 6);
     requestAnimationFrame(frame);
   }
+
   requestAnimationFrame(frame);
 })();
 
@@ -522,7 +554,7 @@ const unlockScroll = () => {
   };
 
   let openedId = null;
-  let currentLang = "fr";
+  let currentProjectsLang = "fr";
 
   const setHeight = (el, value) => {
     el.style.height = typeof value === "number" ? `${value}px` : value;
@@ -530,32 +562,39 @@ const unlockScroll = () => {
 
   const render = (p) => {
     if (!p) return;
+
     if (kEl) kEl.textContent = p.k;
     if (metaEl) metaEl.textContent = p.meta;
     if (titleEl) titleEl.textContent = p.title;
     if (descEl) descEl.textContent = p.desc;
     if (bulletsEl) bulletsEl.innerHTML = `<ul>${p.bullets.map((x) => `<li>${x}</li>`).join("")}</ul>`;
+
     if (mediaEl) {
-      mediaEl.innerHTML = p.images.map((img) => {
-        const cap = (img.cap || "").trim().toLowerCase();
-        const isPieceFinie = cap === "pièce finie" || cap === "finished part";
-        return `
-          <figure class="${isPieceFinie ? "is-piece-finie" : ""}">
-            <img loading="lazy" src="${img.src}" alt="" />
-            <figcaption>${img.cap || "—"}</figcaption>
-          </figure>
-        `;
-      }).join("");
+      mediaEl.innerHTML = p.images
+        .map((img) => {
+          const cap = (img.cap || "").trim().toLowerCase();
+          const isPieceFinie = cap === "pièce finie" || cap === "finished part";
+
+          return `
+            <figure class="${isPieceFinie ? "is-piece-finie" : ""}">
+              <img loading="lazy" src="${img.src}" alt="" />
+              <figcaption>${img.cap || "—"}</figcaption>
+            </figure>
+          `;
+        })
+        .join("");
     }
   };
 
   const selectCard = (id) => {
     cards.forEach((c) => c.classList.toggle("is-selected", c.dataset.id === id));
-    openBtns.forEach((b) => b.setAttribute("aria-expanded", b.dataset.open === id ? "true" : "false"));
+    openBtns.forEach((b) => {
+      b.setAttribute("aria-expanded", b.dataset.open === id ? "true" : "false");
+    });
   };
 
   const openPanel = (id) => {
-    const p = PROJECTS[currentLang].find((x) => x.id === id);
+    const p = PROJECTS[currentProjectsLang].find((x) => x.id === id);
     if (!p) return;
 
     if (openedId === id) {
@@ -572,17 +611,20 @@ const unlockScroll = () => {
     setHeight(panel, 0);
 
     requestAnimationFrame(() => setHeight(panel, panel.scrollHeight));
+
     const onEnd = (e) => {
       if (e.propertyName !== "height") return;
       panel.style.height = "auto";
       panel.removeEventListener("transitionend", onEnd);
     };
+
     panel.addEventListener("transitionend", onEnd);
     panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
   };
 
   const closePanel = () => {
     if (panel.hidden) return;
+
     openedId = null;
     selectCard(null);
 
@@ -596,17 +638,21 @@ const unlockScroll = () => {
       panel.style.height = "0px";
       panel.removeEventListener("transitionend", onEnd);
     };
+
     panel.addEventListener("transitionend", onEnd);
   };
 
   openBtns.forEach((btn) => btn.addEventListener("click", () => openPanel(btn.dataset.open)));
   closeBtn?.addEventListener("click", closePanel);
-  window.addEventListener("keydown", (e) => { if (e.key === "Escape") closePanel(); });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closePanel();
+  });
 
   window.__setProjectsLang = (lang) => {
-    currentLang = lang;
+    currentProjectsLang = lang;
     if (!openedId) return;
-    const current = PROJECTS[currentLang].find((x) => x.id === openedId);
+    const current = PROJECTS[currentProjectsLang].find((x) => x.id === openedId);
     if (current) render(current);
   };
 })();
@@ -623,11 +669,13 @@ let W, H, R, cx, cy;
 
 function resizeEarth() {
   if (!earthCanvas || !ctx) return;
+
   W = earthCanvas.width = window.innerWidth;
   H = earthCanvas.height = window.innerHeight;
   R = Math.min(W, H) * 0.18;
   cx = W / 2;
   cy = H / 2;
+
   offCanvas = document.createElement("canvas");
   offCanvas.width = W;
   offCanvas.height = H;
@@ -635,7 +683,10 @@ function resizeEarth() {
 }
 
 resizeEarth();
-window.addEventListener("resize", () => { resizeEarth(); scheduleDraw(); });
+window.addEventListener("resize", () => {
+  resizeEarth();
+  scheduleDraw();
+});
 
 function project(lon, lat, rotLon, rotLat) {
   const D = Math.PI / 180;
@@ -643,10 +694,21 @@ function project(lon, lat, rotLon, rotLat) {
   const φ = lat * D;
   const φc = rotLat * D;
 
-  const cosφ = Math.cos(φ), sinφ = Math.sin(φ), cosλ = Math.cos(λ), sinλ = Math.sin(λ), cosφc = Math.cos(φc), sinφc = Math.sin(φc);
+  const cosφ = Math.cos(φ);
+  const sinφ = Math.sin(φ);
+  const cosλ = Math.cos(λ);
+  const sinλ = Math.sin(λ);
+  const cosφc = Math.cos(φc);
+  const sinφc = Math.sin(φc);
+
   const z = sinφ * sinφc + cosφ * cosλ * cosφc;
   if (z < 0) return null;
-  return { nx: cosφ * sinλ, ny: -(sinφ * cosφc - cosφ * cosλ * sinφc), z };
+
+  return {
+    nx: cosφ * sinλ,
+    ny: -(sinφ * cosφc - cosφ * cosλ * sinφc),
+    z,
+  };
 }
 
 let coastlines = null;
@@ -654,6 +716,7 @@ let coastlines = null;
 async function initEarth() {
   if (!earthCanvas || !ctx || !topojson) return;
   if (loadEl) loadEl.textContent = getI18nValue("work.loading");
+
   const res = await fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json");
   const topo = await res.json();
   const land = topojson.feature(topo, topo.objects.land);
@@ -661,13 +724,23 @@ async function initEarth() {
 
   function extractRings(geom) {
     if (!geom) return;
-    if (geom.type === "Polygon") rings.push(...geom.coordinates);
-    else if (geom.type === "MultiPolygon") for (const poly of geom.coordinates) for (const ring of poly) rings.push(ring);
-    else if (geom.type === "GeometryCollection") for (const g of geom.geometries) extractRings(g);
+
+    if (geom.type === "Polygon") {
+      rings.push(...geom.coordinates);
+    } else if (geom.type === "MultiPolygon") {
+      for (const poly of geom.coordinates) {
+        for (const ring of poly) rings.push(ring);
+      }
+    } else if (geom.type === "GeometryCollection") {
+      for (const g of geom.geometries) extractRings(g);
+    }
   }
 
-  if (land.features) for (const f of land.features) extractRings(f.geometry);
-  else extractRings(land.geometry || land);
+  if (land.features) {
+    for (const f of land.features) extractRings(f.geometry);
+  } else {
+    extractRings(land.geometry || land);
+  }
 
   coastlines = rings;
   if (loadEl) loadEl.style.display = "none";
@@ -691,14 +764,26 @@ function drawEarth(rotLon, rotLat, zoom) {
     let interrupted = false;
     let first = true;
     offCtx.beginPath();
+
     for (const [lon, lat] of ring) {
       const p = project(lon, lat, rotLon, rotLat);
-      if (!p) { first = true; interrupted = true; continue; }
+      if (!p) {
+        first = true;
+        interrupted = true;
+        continue;
+      }
+
       const sx = cx + p.nx * R * zoom;
       const sy = cy + p.ny * R * zoom;
-      if (first) { offCtx.moveTo(sx, sy); first = false; }
-      else offCtx.lineTo(sx, sy);
+
+      if (first) {
+        offCtx.moveTo(sx, sy);
+        first = false;
+      } else {
+        offCtx.lineTo(sx, sy);
+      }
     }
+
     return !interrupted;
   }
 
@@ -712,7 +797,10 @@ function drawEarth(rotLon, rotLat, zoom) {
   offCtx.lineJoin = "round";
   offCtx.lineCap = "round";
 
-  for (const ring of coastlines) { traceRing(ring); offCtx.stroke(); }
+  for (const ring of coastlines) {
+    traceRing(ring);
+    offCtx.stroke();
+  }
 
   const SERMETA_LON = -3.833;
   const SERMETA_LAT = 48.577;
@@ -720,6 +808,7 @@ function drawEarth(rotLon, rotLat, zoom) {
 
   if (markerOpacity > 0) {
     const bp = project(SERMETA_LON, SERMETA_LAT, rotLon, rotLat);
+
     if (bp && bp.z > 0.01) {
       const mx = cx + bp.nx * R * zoom;
       const my = cy + bp.ny * R * zoom;
@@ -733,8 +822,16 @@ function drawEarth(rotLon, rotLat, zoom) {
       const crossLen = 10 * markerOpacity;
       offCtx.strokeStyle = `rgba(255,255,255,${markerOpacity * 0.7})`;
       offCtx.lineWidth = 0.9;
-      offCtx.beginPath(); offCtx.moveTo(mx - crossLen, my); offCtx.lineTo(mx + crossLen, my); offCtx.stroke();
-      offCtx.beginPath(); offCtx.moveTo(mx, my - crossLen); offCtx.lineTo(mx, my + crossLen); offCtx.stroke();
+
+      offCtx.beginPath();
+      offCtx.moveTo(mx - crossLen, my);
+      offCtx.lineTo(mx + crossLen, my);
+      offCtx.stroke();
+
+      offCtx.beginPath();
+      offCtx.moveTo(mx, my - crossLen);
+      offCtx.lineTo(mx, my + crossLen);
+      offCtx.stroke();
 
       for (let i = 0; i < 3; i++) {
         const period = 2400;
@@ -743,6 +840,7 @@ function drawEarth(rotLon, rotLat, zoom) {
         const eased = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
         const radius = 6 + eased * 28;
         const alpha = markerOpacity * (1 - t) * 0.55;
+
         offCtx.beginPath();
         offCtx.arc(mx, my, radius, 0, Math.PI * 2);
         offCtx.strokeStyle = `rgba(255,255,255,${alpha})`;
@@ -805,36 +903,60 @@ function drawEarth(rotLon, rotLat, zoom) {
   ctx.drawImage(offCanvas, 0, 0);
 }
 
-let targetLon = 80, targetLat = 20, targetZoom = 1.0, animLon = 80, animLat = 20, animZoom = 1.0, rafId = null, markerRafId = null;
+let targetLon = 80;
+let targetLat = 20;
+let targetZoom = 1.0;
+let animLon = 80;
+let animLat = 20;
+let animZoom = 1.0;
+let rafId = null;
+let markerRafId = null;
 
 function startMarkerLoop() {
   if (markerRafId) return;
-  const loop = () => { drawEarth(currentLon, currentLat, currentZoom); markerRafId = requestAnimationFrame(loop); };
+  const loop = () => {
+    drawEarth(currentLon, currentLat, currentZoom);
+    markerRafId = requestAnimationFrame(loop);
+  };
   markerRafId = requestAnimationFrame(loop);
 }
+
 function stopMarkerLoop() {
   if (!markerRafId) return;
   cancelAnimationFrame(markerRafId);
   markerRafId = null;
 }
+
 function animLoop() {
   stopMarkerLoop();
+
   animLon += (targetLon - animLon) * 0.07;
   animLat += (targetLat - animLat) * 0.07;
   animZoom += (targetZoom - animZoom) * 0.055;
-  currentLon = animLon; currentLat = animLat; currentZoom = animZoom;
+
+  currentLon = animLon;
+  currentLat = animLat;
+  currentZoom = animZoom;
+
   drawEarth(currentLon, currentLat, currentZoom);
 
   const d = Math.abs(targetLon - animLon) + Math.abs(targetLat - animLat) + Math.abs(targetZoom - animZoom);
-  if (d > 0.005) rafId = requestAnimationFrame(animLoop);
-  else {
+
+  if (d > 0.005) {
+    rafId = requestAnimationFrame(animLoop);
+  } else {
     rafId = null;
-    currentLon = targetLon; currentLat = targetLat; currentZoom = targetZoom;
+    currentLon = targetLon;
+    currentLat = targetLat;
+    currentZoom = targetZoom;
     drawEarth(currentLon, currentLat, currentZoom);
     if (currentZoom > 9) startMarkerLoop();
   }
 }
-function scheduleDraw() { if (!rafId) rafId = requestAnimationFrame(animLoop); }
+
+function scheduleDraw() {
+  if (!rafId) rafId = requestAnimationFrame(animLoop);
+}
 
 const earthSection = document.getElementById("earth-section");
 const eio = (t) => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t);
@@ -842,9 +964,11 @@ const lerp = (a, b, t) => a + (b - a) * t;
 
 function updateEarthFromScroll() {
   if (!earthSection || !earthCanvas) return;
+
   const rect = earthSection.getBoundingClientRect();
   const total = earthSection.offsetHeight - window.innerHeight;
   if (total <= 0) return;
+
   const p = Math.max(0, Math.min(1, -rect.top / total));
 
   if (p < 0.22) {
@@ -854,19 +978,29 @@ function updateEarthFromScroll() {
     targetZoom = lerp(1.0, 1.8, t);
   } else if (p < 0.46) {
     const t = eio((p - 0.22) / 0.24);
-    targetLon = -3.833; targetLat = 48.577; targetZoom = lerp(1.8, 5.2, t);
+    targetLon = -3.833;
+    targetLat = 48.577;
+    targetZoom = lerp(1.8, 5.2, t);
   } else if (p < 0.68) {
     const t = eio((p - 0.46) / 0.22);
-    targetLon = -3.833; targetLat = 48.577; targetZoom = lerp(5.2, 10.5, t);
+    targetLon = -3.833;
+    targetLat = 48.577;
+    targetZoom = lerp(5.2, 10.5, t);
   } else if (p < 0.82) {
     const t = eio((p - 0.68) / 0.14);
-    targetLon = -3.833; targetLat = 48.577; targetZoom = lerp(10.5, 14.5, t);
+    targetLon = -3.833;
+    targetLat = 48.577;
+    targetZoom = lerp(10.5, 14.5, t);
   } else {
     const t = eio((p - 0.82) / 0.18);
-    targetLon = -3.833; targetLat = 48.577; targetZoom = lerp(14.5, 40, t);
+    targetLon = -3.833;
+    targetLat = 48.577;
+    targetZoom = lerp(14.5, 40, t);
   }
+
   scheduleDraw();
 }
+
 window.addEventListener("scroll", updateEarthFromScroll, { passive: true });
 window.addEventListener("resize", updateEarthFromScroll);
 updateEarthFromScroll();
@@ -875,43 +1009,57 @@ updateEarthFromScroll();
 const I18N = {
   fr: {
     "sys.portfolio": "Portfolio",
+
     "nav.indexBtn": "Index",
     "nav.chapters": "Chapitres",
     "nav.indexTitle": "Index",
     "nav.home": "01 — Home",
-    "nav.about": "02 — À propos",
+    "nav.iut": "02 — IUT de Brest",
     "nav.skills": "03 — Compétences",
-    "nav.work": "04 — Alternance / Stage",
-    "nav.edu": "05 — Formation",
-    "nav.xp": "06 — Expérience",
-    "nav.projects": "07 — Projets",
+    "nav.projects": "04 — Projets",
+    "nav.work": "05 — Alternance / Stage",
+    "nav.edu": "06 — Formation",
+    "nav.xp": "07 — Expérience",
     "nav.interests": "08 — Intérêts",
     "nav.contact": "09 — Contact",
     "nav.homeShort": "Home",
-    "nav.aboutShort": "À propos",
+    "nav.iutShort": "IUT de Brest",
     "nav.skillsShort": "Compétences",
+    "nav.projectsShort": "Projets",
     "nav.workShort": "Alternance / Stage",
     "nav.eduShort": "Formation",
     "nav.xpShort": "Expérience",
-    "nav.projectsShort": "Projets",
     "nav.interestsShort": "Intérêts",
     "nav.contactShort": "Contact",
     "nav.scroll": "Scroll ▾",
-    "actions.cv": "CV",
+
     "actions.openCv": "Ouvrir le CV",
+
     "home.top1": "Alternant — Sermeta",
     "home.top3": "Portfolio",
-    "home.title": `Le Génie Mécanique et Productique<br /><span class="title__accent">appliqué</span> chez Sermeta<br />`,
+    "home.title": `Le Génie Mécanique et Productique<br /><span class="title__accent">appliqué</span> chez Sermeta`,
     "home.lead": "De l'étude complète à la fabrication en atelier",
     "home.ctaProjects": "Open projects",
     "home.ctaContact": "Contact",
-    "about.title": "À propos",
-    "about.p1": "Étudiant en deuxième année de Génie Mécanique et Productique à l’IUT de Brest, je développe des compétences telles que la conception mécanique, le dessin industriel, la métrologie…",
-    "about.p2": "En alternance chez Sermeta à Morlaix, j’évolue en tant que dessinateur process, où je contribue à l’optimisation et la mise en œuvre de nouveaux procédés de fabrication.",
-    "about.table.status": "Statut",
-    "about.table.statusValue": "Alternant",
-    "about.table.company": "Entreprise",
-    "about.table.degree": "Diplôme prévu",
+    "home.profileEyebrow": "Profil",
+    "home.aboutTitle": "À propos",
+    "home.aboutLead": "Étudiant en deuxième année de Génie Mécanique et Productique à l’IUT de Brest, je développe des compétences en conception mécanique, dessin industriel et métrologie.",
+    "home.aboutText": `En alternance chez <b>Sermeta</b> à Morlaix, j’évolue en tant que <b>dessinateur process</b>, avec une implication directe dans l’optimisation et la conception de nouveaux procédés de fabrication.`,
+    "home.aboutMeta": `Diplôme prévu : <b>BUT GMP — 2027</b>`,
+
+    "iut.title": "IUT de Brest",
+    "iut.eyebrow": "Formation / Environnement",
+    "iut.subtitle": "Un cadre de formation technique, concret et professionnalisant",
+    "iut.text1": "L’IUT de Brest me permet d’évoluer dans un environnement orienté vers la pratique, la démarche de projet et l’application directe des compétences du GMP.",
+    "iut.text2": "Entre ressources techniques, projets encadrés, travail en équipe et lien avec l’industrie, cette formation constitue une base solide pour développer une approche concrète de la conception, de la fabrication et de l’innovation.",
+    "iut.tag1": "GMP",
+    "iut.tag2": "Projets",
+    "iut.tag3": "Ateliers",
+    "iut.tag4": "Industrie",
+    "iut.videoKicker": "Vidéo de présentation",
+    "iut.videoTitle": "Découvrir l’IUT de Brest",
+    "iut.videoHint": "Remplace ce bloc par ta future vidéo ou une miniature cliquable.",
+
     "skills.title": "Compétences",
     "skills.projectsBtn": "Voir projets →",
     "skills.cards.0.title": "CAO, FAO & mise en plan",
@@ -940,28 +1088,7 @@ const I18N = {
     "skills.board.title": "Niveaux de développement des compétences",
     "skills.board.program1": "B.U.T. Génie mécanique et productique",
     "skills.board.program2": "Parcours Innovation pour l'industrie",
-    "skills.board.level1": "Niveau 1",
-    "skills.board.level2": "Niveau 2",
-    "skills.board.level3": "Niveau 3",
-    "skills.board.cols.specify": "Spécifier",
-    "skills.board.cols.develop": "Développer",
-    "skills.board.cols.realize": "Réaliser",
-    "skills.board.cols.operate": "Exploiter",
-    "skills.board.cols.innovate": "Innover",
-    "skills.board.specify.1": "Identifier le besoin d’un client dans un cas simple",
-    "skills.board.specify.2": "Identifier le besoin d’un client dans un contexte industriel en collaboration",
-    "skills.board.specify.3": "Identifier le besoin d’un client dans un contexte industriel",
-    "skills.board.develop.1": "Proposer des solutions dans un cas simple",
-    "skills.board.develop.2": "Proposer des solutions dans un cas complexe",
-    "skills.board.develop.3": "Proposer des solutions validées",
-    "skills.board.realize.1": "Concrétiser une solution simple",
-    "skills.board.realize.2": "Concrétiser une solution complexe en collaboration",
-    "skills.board.realize.3": "Concrétiser une solution complexe",
-    "skills.board.operate.1": "Identifier les sources d’information pertinentes en entreprise",
-    "skills.board.operate.2": "Utiliser les outils permettant d’évaluer les performances",
-    "skills.board.operate.3": "Mettre en œuvre une amélioration selon une démarche structurée",
-    "skills.board.innovate.1": "Expérimenter une démarche d’innovation",
-    "skills.board.innovate.2": "Participer activement à une démarche d’innovation",
+
     "work.loading": "Chargement…",
     "work.title": "Alternance / Stage",
     "work.tabs.alt": "Alternance",
@@ -984,6 +1111,7 @@ const I18N = {
     "work.stage.o1": "Comprendre le fonctionnement d’une entreprise",
     "work.stage.o2": "Découvrir les services",
     "work.stage.o3": "Comprendre les risques opérateur",
+
     "edu.title": "Formation",
     "edu.live": "En cours",
     "edu.done": "Obtenu",
@@ -997,6 +1125,7 @@ const I18N = {
     "edu.i4.place": "Lycée de l'Elorn, Landerneau",
     "edu.i5.title": "Brevet d'Initiation à l'Aéronautique",
     "edu.i5.place": "Aéroclub, Guipavas",
+
     "xp.title": "Expérience pro",
     "xp.summer2025": "Été 2025",
     "xp.summer2024": "Été 2024",
@@ -1013,19 +1142,19 @@ const I18N = {
     "xp.i4.place": "ETA LEOST, Plouedern",
     "xp.i5.title": "Emploi saisonnier — Échalotes",
     "xp.i5.place": "ETA LEOST, Plouedern",
+
     "projects.title": "Projets",
     "projects.open": "Ouvrir",
     "projects.close": "Fermer",
     "projects.inProgress": "EN COURS",
     "projects.p1.title": "Fabrication d'une pièce unitaire",
     "projects.p1.desc": "Fabrication d'une pièce en tôle pliée",
-    "projects.p1.meta": "Conception / Gamme / Pliage",
     "projects.p2.title": "Foil",
     "projects.p2.desc": "Conception d'un foil et de son moule",
-    "projects.p2.meta": "Surfacique / Foil / Modélisation",
     "projects.p3.title": "Projet arçon de voltige",
     "projects.p3.desc": "Objectif : Concevoir et fabriquer un arçon de voltige à partir d’un scan 3D d'un dos de cheval, afin de répondre aux besoins du cascadeur tout en garantissant le confort de l’animal. L’arçon devra épouser parfaitement la morphologie du cheval.",
     "projects.p3.meta": "Scan 3D / CATIA / Prototypage / Fabrication",
+
     "interests.title": "Centres d’intérêt",
     "interests.i1.title": "Sport auto",
     "interests.i1.text": "stratégie / aérodynamique",
@@ -1043,6 +1172,7 @@ const I18N = {
     "interests.i7.text": "découverte",
     "interests.i8.title": "Bivouac",
     "interests.i8.text": "liberté",
+
     "contact.title": "Contact",
     "contact.p1": "Pour me contacter,",
     "contact.p2": "il suffit de cliquer sur le mail ou le bouton LinkedIn ci-dessous.",
@@ -1053,45 +1183,60 @@ const I18N = {
     "contact.table.role": "Rôle",
     "contact.table.roleValue": "Dessinateur process",
   },
+
   en: {
     "sys.portfolio": "Portfolio",
+
     "nav.indexBtn": "Index",
     "nav.chapters": "Chapters",
     "nav.indexTitle": "Index",
     "nav.home": "01 — Home",
-    "nav.about": "02 — About",
+    "nav.iut": "02 — Brest IUT",
     "nav.skills": "03 — Skills",
-    "nav.work": "04 — Work / Internship",
-    "nav.edu": "05 — Education",
-    "nav.xp": "06 — Experience",
-    "nav.projects": "07 — Projects",
+    "nav.projects": "04 — Projects",
+    "nav.work": "05 — Work / Internship",
+    "nav.edu": "06 — Education",
+    "nav.xp": "07 — Experience",
     "nav.interests": "08 — Interests",
     "nav.contact": "09 — Contact",
     "nav.homeShort": "Home",
-    "nav.aboutShort": "About",
+    "nav.iutShort": "Brest IUT",
     "nav.skillsShort": "Skills",
+    "nav.projectsShort": "Projects",
     "nav.workShort": "Work / Internship",
     "nav.eduShort": "Education",
     "nav.xpShort": "Experience",
-    "nav.projectsShort": "Projects",
     "nav.interestsShort": "Interests",
     "nav.contactShort": "Contact",
     "nav.scroll": "Scroll ▾",
-    "actions.cv": "Resume",
+
     "actions.openCv": "Open resume",
+
     "home.top1": "Apprentice — Sermeta",
     "home.top3": "Portfolio",
-    "home.title": `Mechanical and Production Engineering<br /><span class="title__accent">applied</span> at Sermeta<br />`,
+    "home.title": `Mechanical and Production Engineering<br /><span class="title__accent">applied</span> at Sermeta`,
     "home.lead": "From full design studies to workshop manufacturing",
     "home.ctaProjects": "Open projects",
     "home.ctaContact": "Contact",
-    "about.title": "About",
-    "about.p1": "Second-year Mechanical and Production Engineering student at the IUT of Brest, developing skills in mechanical design, industrial drawing, metrology, and more.",
-    "about.p2": "As an apprentice at Sermeta in Morlaix, I work as a process drafter, contributing to the optimization and implementation of new manufacturing processes.",
-    "about.table.status": "Status",
-    "about.table.statusValue": "Apprentice",
-    "about.table.company": "Company",
-    "about.table.degree": "Expected degree",
+    "home.profileEyebrow": "Profile",
+    "home.aboutTitle": "About",
+    "home.aboutLead": "Second-year Mechanical and Production Engineering student at the IUT of Brest, developing skills in mechanical design, industrial drawing and metrology.",
+    "home.aboutText": `As an apprentice at <b>Sermeta</b> in Morlaix, I work as a <b>process designer</b>, with direct involvement in optimization and the design of new manufacturing processes.`,
+    "home.aboutMeta": `Expected degree: <b>BUT GMP — 2027</b>`,
+
+    "iut.title": "Brest IUT",
+    "iut.eyebrow": "Education / Environment",
+    "iut.subtitle": "A technical, practical and professional training environment",
+    "iut.text1": "The IUT of Brest allows me to evolve in an environment focused on hands-on work, project-based learning and direct application of GMP skills.",
+    "iut.text2": "Between technical resources, supervised projects, teamwork and strong links with industry, this training provides a solid foundation for developing a practical approach to design, manufacturing and innovation.",
+    "iut.tag1": "GMP",
+    "iut.tag2": "Projects",
+    "iut.tag3": "Workshops",
+    "iut.tag4": "Industry",
+    "iut.videoKicker": "Presentation video",
+    "iut.videoTitle": "Discover Brest IUT",
+    "iut.videoHint": "Replace this block with your future video or a clickable thumbnail.",
+
     "skills.title": "Skills",
     "skills.projectsBtn": "See projects →",
     "skills.cards.0.title": "CAD, CAM & technical drawings",
@@ -1120,28 +1265,7 @@ const I18N = {
     "skills.board.title": "Competency development levels",
     "skills.board.program1": "B.U.T. Mechanical and Production Engineering",
     "skills.board.program2": "Innovation for Industry pathway",
-    "skills.board.level1": "Level 1",
-    "skills.board.level2": "Level 2",
-    "skills.board.level3": "Level 3",
-    "skills.board.cols.specify": "Specify",
-    "skills.board.cols.develop": "Develop",
-    "skills.board.cols.realize": "Build",
-    "skills.board.cols.operate": "Operate",
-    "skills.board.cols.innovate": "Innovate",
-    "skills.board.specify.1": "Identify a client need in a simple case",
-    "skills.board.specify.2": "Identify a client need in an industrial context with collaboration",
-    "skills.board.specify.3": "Identify a client need in an industrial context",
-    "skills.board.develop.1": "Propose solutions in a simple case",
-    "skills.board.develop.2": "Propose solutions in a complex case",
-    "skills.board.develop.3": "Propose validated solutions",
-    "skills.board.realize.1": "Implement a simple solution",
-    "skills.board.realize.2": "Implement a complex solution collaboratively",
-    "skills.board.realize.3": "Implement a complex solution",
-    "skills.board.operate.1": "Identify relevant information sources in a company",
-    "skills.board.operate.2": "Use tools to assess performance",
-    "skills.board.operate.3": "Implement an improvement through a structured approach",
-    "skills.board.innovate.1": "Experiment with an innovation approach",
-    "skills.board.innovate.2": "Actively contribute to an innovation approach",
+
     "work.loading": "Loading…",
     "work.title": "Work / Internship",
     "work.tabs.alt": "Apprenticeship",
@@ -1164,6 +1288,7 @@ const I18N = {
     "work.stage.o1": "Understand how a company operates",
     "work.stage.o2": "Discover the departments",
     "work.stage.o3": "Understand operator risks",
+
     "edu.title": "Education",
     "edu.live": "Ongoing",
     "edu.done": "Obtained",
@@ -1177,6 +1302,7 @@ const I18N = {
     "edu.i4.place": "Lycée de l'Elorn, Landerneau",
     "edu.i5.title": "Aeronautics Initiation Certificate",
     "edu.i5.place": "Aéroclub, Guipavas",
+
     "xp.title": "Professional experience",
     "xp.summer2025": "Summer 2025",
     "xp.summer2024": "Summer 2024",
@@ -1193,19 +1319,19 @@ const I18N = {
     "xp.i4.place": "ETA LEOST, Plouedern",
     "xp.i5.title": "Seasonal job — Shallots",
     "xp.i5.place": "ETA LEOST, Plouedern",
+
     "projects.title": "Projects",
     "projects.open": "Open",
     "projects.close": "Close",
     "projects.inProgress": "IN PROGRESS",
     "projects.p1.title": "Manufacturing of a single part",
     "projects.p1.desc": "Manufacturing of a bent sheet metal part",
-    "projects.p1.meta": "Design / Bending sequence / Bending",
     "projects.p2.title": "Foil",
     "projects.p2.desc": "Design of a foil and its mold",
-    "projects.p2.meta": "Surfacing / Foil / Modeling",
     "projects.p3.title": "Voltige saddle tree project",
     "projects.p3.desc": "Objective: design and manufacture a stunt saddle tree from a 3D scan of a horse’s back, meeting the stunt rider’s needs while ensuring the animal’s comfort. The saddle tree must perfectly match the horse’s morphology.",
     "projects.p3.meta": "3D scan / CATIA / Prototyping / Manufacturing",
+
     "interests.title": "Interests",
     "interests.i1.title": "Motorsport",
     "interests.i1.text": "strategy / aerodynamics",
@@ -1223,6 +1349,7 @@ const I18N = {
     "interests.i7.text": "discovery",
     "interests.i8.title": "Bivouac",
     "interests.i8.text": "freedom",
+
     "contact.title": "Contact",
     "contact.p1": "To contact me,",
     "contact.p2": "just click on the email address or the LinkedIn button below.",
@@ -1258,14 +1385,17 @@ function applyI18n() {
 
   const langBtn = $("#langBtn");
   if (langBtn) langBtn.textContent = currentLang === "fr" ? "EN" : "FR";
-  document.title = currentLang === "fr" ? "Yohann Lazou — Portfolio" : "Yohann Lazou — Portfolio";
+
+  document.title = "Yohann Lazou — Portfolio";
   window.__setProjectsLang?.(currentLang);
 }
 
 (() => {
   const btn = $("#langBtn");
   if (!btn) return;
+
   applyI18n();
+
   btn.addEventListener("click", () => {
     currentLang = currentLang === "fr" ? "en" : "fr";
     localStorage.setItem("site-lang", currentLang);
@@ -1276,5 +1406,7 @@ function applyI18n() {
 /* Init */
 initEarth().catch((err) => {
   console.error(err);
-  if (loadEl) loadEl.textContent = currentLang === "fr" ? "Erreur de chargement" : "Loading error";
+  if (loadEl) {
+    loadEl.textContent = currentLang === "fr" ? "Erreur de chargement" : "Loading error";
+  }
 });

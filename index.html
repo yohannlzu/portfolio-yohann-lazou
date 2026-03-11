@@ -54,15 +54,15 @@
           LinkedIn ↗
         </a>
 
-<a
-  class="btn btn--ghost"
-  href="/cv/yohann-lazou-cv.pdf"
-  target="_blank"
-  rel="noopener"
-  data-i18n="actions.openCv"
->
-  Ouvrir le CV
-</a>
+        <a
+          class="btn btn--ghost"
+          href="/cv/yohann-lazou-cv.pdf"
+          target="_blank"
+          rel="noopener"
+          data-i18n="actions.openCv"
+        >
+          Ouvrir le CV
+        </a>
 
         <button
           class="sys__btn"
@@ -98,12 +98,12 @@
 
         <nav class="drawer__nav" aria-label="Navigation">
           <a href="#home" data-jump data-i18n="nav.home">01 — Home</a>
-          <a href="#about" data-jump data-i18n="nav.about">02 — À propos</a>
+          <a href="#iut" data-jump data-i18n="nav.iut">02 — IUT de Brest</a>
           <a href="#skills" data-jump data-i18n="nav.skills">03 — Compétences</a>
-          <a href="#work-content" data-jump data-i18n="nav.work">04 — Alternance / Stage</a>
-          <a href="#edu" data-jump data-i18n="nav.edu">05 — Formation</a>
-          <a href="#xp" data-jump data-i18n="nav.xp">06 — Expérience</a>
-          <a href="#projects" data-jump data-i18n="nav.projects">07 — Projets</a>
+          <a href="#projects" data-jump data-i18n="nav.projects">04 — Projets</a>
+          <a href="#work-content" data-jump data-i18n="nav.work">05 — Alternance / Stage</a>
+          <a href="#edu" data-jump data-i18n="nav.edu">06 — Formation</a>
+          <a href="#xp" data-jump data-i18n="nav.xp">07 — Expérience</a>
           <a href="#interests" data-jump data-i18n="nav.interests">08 — Intérêts</a>
           <a href="#contact" data-jump data-i18n="nav.contact">09 — Contact</a>
         </nav>
@@ -119,12 +119,12 @@
 
       <nav class="index__nav" aria-label="Index (desktop)">
         <a href="#home" class="idx is-on" data-chapter="01"><em>01</em><span data-i18n="nav.homeShort">Home</span></a>
-        <a href="#about" class="idx" data-chapter="02"><em>02</em><span data-i18n="nav.aboutShort">À propos</span></a>
+        <a href="#iut" class="idx" data-chapter="02"><em>02</em><span data-i18n="nav.iutShort">IUT de Brest</span></a>
         <a href="#skills" class="idx" data-chapter="03"><em>03</em><span data-i18n="nav.skillsShort">Compétences</span></a>
-        <a href="#work-content" class="idx" data-chapter="04"><em>04</em><span data-i18n="nav.workShort">Alternance / Stage</span></a>
-        <a href="#edu" class="idx" data-chapter="05"><em>05</em><span data-i18n="nav.eduShort">Formation</span></a>
-        <a href="#xp" class="idx" data-chapter="06"><em>06</em><span data-i18n="nav.xpShort">Expérience</span></a>
-        <a href="#projects" class="idx" data-chapter="07"><em>07</em><span data-i18n="nav.projectsShort">Projets</span></a>
+        <a href="#projects" class="idx" data-chapter="04"><em>04</em><span data-i18n="nav.projectsShort">Projets</span></a>
+        <a href="#work-content" class="idx" data-chapter="05"><em>05</em><span data-i18n="nav.workShort">Alternance / Stage</span></a>
+        <a href="#edu" class="idx" data-chapter="06"><em>06</em><span data-i18n="nav.eduShort">Formation</span></a>
+        <a href="#xp" class="idx" data-chapter="07"><em>07</em><span data-i18n="nav.xpShort">Expérience</span></a>
         <a href="#interests" class="idx" data-chapter="08"><em>08</em><span data-i18n="nav.interestsShort">Intérêts</span></a>
         <a href="#contact" class="idx" data-chapter="09"><em>09</em><span data-i18n="nav.contactShort">Contact</span></a>
       </nav>
@@ -140,7 +140,7 @@
     <main id="main">
       <section id="home" class="plate" data-chapter="01" data-title="Home">
         <div class="plate__inner">
-          <div class="hero hero--with-photo">
+          <div class="hero hero--grid">
             <div class="hero__content">
               <div class="hero__top">
                 <span class="mono" data-i18n="home.top1">Alternant — Sermeta</span>
@@ -152,7 +152,7 @@
 
               <h1 class="title" data-i18n-html="home.title">
                 Le Génie Mécanique et Productique<br />
-                <span class="title__accent">appliqué</span> chez Sermeta<br />
+                <span class="title__accent">appliqué</span> chez Sermeta
               </h1>
 
               <p class="heroLead" data-i18n="home.lead">
@@ -165,38 +165,87 @@
               </div>
             </div>
 
-            <div class="heroHead" aria-hidden="true">
-              <img src="/images/yohann-head.png" alt="" class="heroHead__img" />
-            </div>
+            <div class="heroAbout">
+              <div class="heroAbout__panel">
+                <div class="heroAbout__eyebrow" data-i18n="home.profileEyebrow">Profil</div>
 
-            <aside class="heroPhoto" aria-label="Portrait de Yohann Lazou"></aside>
+                <h3 class="heroAbout__title" data-i18n="home.aboutTitle">À propos</h3>
+
+                <div class="heroAbout__photo">
+  <img src="/images/yohann.jpg" alt="Yohann Lazou">
+</div>
+
+                <p class="heroAbout__lead" data-i18n="home.aboutLead">
+                  Étudiant en deuxième année de Génie Mécanique et Productique à l’IUT de Brest,
+                  je développe des compétences en conception mécanique, dessin industriel et métrologie.
+                </p>
+
+                <p class="heroAbout__text" data-i18n-html="home.aboutText">
+                  En alternance chez <b>Sermeta</b> à Morlaix, j’évolue en tant que
+                  <b>dessinateur process</b>, avec une implication directe dans
+                  l’optimisation et la conception de nouveaux procédés de fabrication.
+                </p>
+
+                <p class="heroAbout__meta" data-i18n-html="home.aboutMeta">
+                  Diplôme prévu : <b>BUT GMP — 2027</b>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="about" class="plate" data-chapter="02" data-title="À propos">
+      <section id="iut" class="plate" data-chapter="02" data-title="IUT de Brest">
         <div class="plate__inner">
-          <header class="head">
-            <span class="k">02</span>
-            <h2 class="h2" data-i18n="about.title">À propos</h2>
+          <header class="head head--row">
+            <div class="head__title">
+              <span class="k">02</span>
+              <h2 class="h2" data-i18n="iut.title">IUT de Brest</h2>
+            </div>
           </header>
 
-          <div class="cols">
-            <div class="textblock">
-              <p data-i18n="about.p1">
-                Étudiant en deuxième année de Génie Mécanique et Productique à l’IUT de Brest, je développe des
-                compétences telles que la conception mécanique, le dessin industriel, la métrologie…
+          <div class="iutIntro">
+            <div class="iutIntro__content">
+              <p class="iutIntro__eyebrow" data-i18n="iut.eyebrow">Formation / Environnement</p>
+
+              <h3 class="iutIntro__title" data-i18n="iut.subtitle">
+                Un cadre de formation technique, concret et professionnalisant
+              </h3>
+
+              <p class="iutIntro__text" data-i18n="iut.text1">
+                L’IUT de Brest me permet d’évoluer dans un environnement orienté vers la pratique,
+                la démarche de projet et l’application directe des compétences du GMP.
               </p>
-              <p data-i18n="about.p2">
-                En alternance chez Sermeta à Morlaix, j’évolue en tant que dessinateur process, où je contribue à
-                l’optimisation et la mise en œuvre de nouveaux procédés de fabrication.
+
+              <p class="iutIntro__text" data-i18n="iut.text2">
+                Entre ressources techniques, projets encadrés, travail en équipe et lien avec l’industrie,
+                cette formation constitue une base solide pour développer une approche concrète de la conception,
+                de la fabrication et de l’innovation.
               </p>
+
+              <div class="iutIntro__tags">
+                <span class="chip" data-i18n="iut.tag1">GMP</span>
+                <span class="chip" data-i18n="iut.tag2">Projets</span>
+                <span class="chip" data-i18n="iut.tag3">Ateliers</span>
+                <span class="chip" data-i18n="iut.tag4">Industrie</span>
+              </div>
             </div>
 
-            <div class="table">
-              <div class="row"><span data-i18n="about.table.status">Statut</span><b data-i18n="about.table.statusValue">Alternant</b></div>
-              <div class="row"><span data-i18n="about.table.company">Entreprise</span><b>Sermeta</b></div>
-              <div class="row"><span data-i18n="about.table.degree">Diplôme prévu</span><b>BUT (2027)</b></div>
+            <div class="videoTeaser" aria-label="Zone de présentation vidéo de l’IUT">
+              <div class="videoTeaser__screen">
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UAUJwDQBDBw?si=U8clZxbhlOKT2B0q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</div>
+<div class="videoTeaser__action">
+<a 
+  href="https://www.iut-brest.fr/but/but-gmp/"
+  target="_blank"
+  class="videoTeaser__btn"
+>
+<span>LE SITE DE L'IUT</span> 
+</a>
+</div>
             </div>
           </div>
         </div>
@@ -290,299 +339,39 @@
             </div>
 
             <div class="competencyTable">
-  <div class="compHead spec">Spécifier</div>
-  <div class="compHead dev">Développer</div>
-  <div class="compHead real">Réaliser</div>
-  <div class="compHead explo">Exploiter</div>
-  <div class="compHead innov">Innover</div>
+              <div class="compHead spec">Spécifier</div>
+              <div class="compHead dev">Développer</div>
+              <div class="compHead real">Réaliser</div>
+              <div class="compHead explo">Exploiter</div>
+              <div class="compHead innov">Innover</div>
 
-  <div class="compCard">
-    <span>Niveau 1</span>
-    Déterminer le besoin d'un client dans un cas simple
-  </div>
-  <div class="compCard">
-    <span>Niveau 1</span>
-    Proposer des solutions dans un cas simple
-  </div>
-  <div class="compCard">
-    <span>Niveau 1</span>
-    Concrétiser une solution simple
-  </div>
-  <div class="compCard">
-    <span>Niveau 1</span>
-    Déterminer les sources d'information en entreprise
-  </div>
-  <div class="compEmpty" aria-hidden="true"></div>
+              <div class="compCard"><span>Niveau 1</span>Déterminer le besoin d'un client dans un cas simple</div>
+              <div class="compCard"><span>Niveau 1</span>Proposer des solutions dans un cas simple</div>
+              <div class="compCard"><span>Niveau 1</span>Concrétiser une solution simple</div>
+              <div class="compCard"><span>Niveau 1</span>Déterminer les sources d'information en entreprise</div>
+              <div class="compEmpty" aria-hidden="true"></div>
 
-  <div class="compCard">
-    <span>Niveau 2</span>
-    Déterminer le besoin d'un client dans un cas industriel en collaboration
-  </div>
-  <div class="compCard">
-    <span>Niveau 2</span>
-    Proposer des solutions dans un cas complexe
-  </div>
-  <div class="compCard">
-    <span>Niveau 2</span>
-    Concrétiser une solution complexe en collaboration
-  </div>
-  <div class="compCard">
-    <span>Niveau 2</span>
-    Utiliser les outils permettant d’évaluer les performances
-  </div>
-  <div class="compCard">
-    <span>Niveau 1</span>
-    Expérimenter la démarche d’innovation
-  </div>
+              <div class="compCard"><span>Niveau 2</span>Déterminer le besoin d'un client dans un cas industriel en collaboration</div>
+              <div class="compCard"><span>Niveau 2</span>Proposer des solutions dans un cas complexe</div>
+              <div class="compCard"><span>Niveau 2</span>Concrétiser une solution complexe en collaboration</div>
+              <div class="compCard"><span>Niveau 2</span>Utiliser les outils permettant d’évaluer les performances</div>
+              <div class="compCard"><span>Niveau 1</span>Expérimenter la démarche d’innovation</div>
 
-  <div class="compCard">
-    <span>Niveau 3</span>
-    Déterminer le besoin d'un client dans un cas industriel
-  </div>
-  <div class="compCard">
-    <span>Niveau 3</span>
-    Proposer des solutions validées
-  </div>
-  <div class="compCard">
-    <span>Niveau 3</span>
-    Concrétiser une solution complexe
-  </div>
-  <div class="compCard">
-    <span>Niveau 3</span>
-    Mettre en œuvre une amélioration suivant une démarche structurée
-  </div>
-  <div class="compCard">
-    <span>Niveau 2</span>
-    Participer activement à une démarche d’innovation
-  </div>
-</div>
-          </section>
-        </div>
-      </section>
-
-      <section id="work" class="plate" data-chapter="04" data-title="Alternance / Stage">
-        <div class="plate__inner">
-          <section id="earth-section" class="earthSection">
-            <div id="earth-sticky" class="earthSticky">
-              <canvas id="earth-canvas"></canvas>
-
-              <div id="loading" data-i18n="work.loading">Chargement…</div>
-              <div class="earth-label" id="earth-label">
-                TERRE · 12 742 KM DE DIAMÈTRE
-              </div>
+              <div class="compCard"><span>Niveau 3</span>Déterminer le besoin d'un client dans un cas industriel</div>
+              <div class="compCard"><span>Niveau 3</span>Proposer des solutions validées</div>
+              <div class="compCard"><span>Niveau 3</span>Concrétiser une solution complexe</div>
+              <div class="compCard"><span>Niveau 3</span>Mettre en œuvre une amélioration suivant une démarche structurée</div>
+              <div class="compCard"><span>Niveau 2</span>Participer activement à une démarche d’innovation</div>
             </div>
           </section>
-
-          <header class="head head--row" id="work-content">
-            <div class="head__title">
-              <span class="k">04</span>
-              <h2 class="h2" data-i18n="work.title">Alternance / Stage</h2>
-            </div>
-
-            <div class="tabs" role="tablist" aria-label="Alternance et stage">
-              <button class="tab is-on" type="button" data-tab="alt" aria-selected="true" data-i18n="work.tabs.alt">Alternance</button>
-              <button class="tab" type="button" data-tab="stage" aria-selected="false" data-i18n="work.tabs.stage">Stage</button>
-            </div>
-          </header>
-
-          <div class="panels">
-            <article class="panel is-on" data-panel="alt">
-              <div class="altTop">
-                <div class="altTop__content">
-                  <div class="panel__head">
-                    <span class="mono" data-i18n="work.alt.role">DESSINATEUR PROCESS</span>
-                  </div>
-
-                  <p data-i18n="work.alt.desc">
-                    Dans le cadre de l’obtention du BUT, une alternance doit être réalisée à partir de la deuxième (mon cas) ou troisième année. En alternance chez Sermeta, je participe à l’amélioration des moyens de fabrication existants et à la conception de nouveaux équipements.
-                  </p>
-                </div>
-
-                <div class="companyBrand">
-                  <img src="/images/sermeta.png" alt="Logo Sermeta" class="companyBrand__logo" />
-                </div>
-              </div>
-
-              <div class="split">
-                <div class="box">
-                  <span class="mono" data-i18n="work.box.missions">Missions</span>
-                  <ul>
-                    <li data-i18n="work.alt.m1">Conception 3D &amp; mise en plan</li>
-                    <li data-i18n="work.alt.m2">Optimisation d’outillages / montages</li>
-                    <li data-i18n="work.alt.m3">Recherche de solutions</li>
-                  </ul>
-                </div>
-                <div class="box">
-                  <span class="mono" data-i18n="work.box.goals">Objectifs</span>
-                  <ul>
-                    <li data-i18n="work.alt.o1">Réduction d’un temps de manipulation / simplification d’un montage</li>
-                    <li data-i18n="work.alt.o2">Fiabiliser un système</li>
-                    <li data-i18n="work.alt.o3">Conception de nouveaux équipements</li>
-                  </ul>
-                </div>
-              </div>
-            </article>
-
-            <article class="panel" data-panel="stage">
-              <div class="altTop">
-                <div class="altTop__content">
-                  <div class="panel__head">
-                    <span class="mono" data-i18n="work.stage.role">STAGE OPÉRATEUR</span>
-                  </div>
-
-                  <p data-i18n="work.stage.desc">
-                    Dans le cadre de la validation de ma première année de BUT GMP, j’ai effectué un stage opérateur de
-                    trois semaines chez Oxymax. L’entreprise couvre plusieurs domaines du GMP : pliage, découpe,
-                    chaudronnerie ainsi qu'un bureau d'études et de méthodes. J’ai travaillé en tant qu'opérateur en
-                    découpe laser/oxycoupage, en pliage et en chaudronnerie.
-                  </p>
-                </div>
-
-                <div class="companyBrand">
-                  <img src="/images/oxymax.png" alt="Logo Oxymax" class="companyBrand__logo" />
-                </div>
-              </div>
-
-              <div class="split">
-                <div class="box">
-                  <span class="mono" data-i18n="work.box.missions">Missions</span>
-                  <ul>
-                    <li data-i18n="work.stage.m1">Chargement/déchargement des tôles</li>
-                    <li data-i18n="work.stage.m2">Ébavurage &amp; finition (acier, inox, alu)</li>
-                    <li data-i18n="work.stage.m3">Pliage de tôles</li>
-                  </ul>
-                </div>
-                <div class="box">
-                  <span class="mono" data-i18n="work.box.goals">Objectifs</span>
-                  <ul>
-                    <li data-i18n="work.stage.o1">Comprendre le fonctionnement d’une entreprise</li>
-                    <li data-i18n="work.stage.o2">Découvrir les services</li>
-                    <li data-i18n="work.stage.o3">Comprendre les risques opérateur</li>
-                  </ul>
-                </div>
-              </div>
-            </article>
-          </div>
         </div>
       </section>
 
-      <section id="edu" class="plate" data-chapter="05" data-title="Formation">
-        <div class="plate__inner">
-          <header class="head">
-            <span class="k">05</span>
-            <h2 class="h2" data-i18n="edu.title">Formation</h2>
-          </header>
-
-          <div class="stack">
-            <div class="item">
-              <div class="item__meta">
-                <span class="mono">2024 — 2027</span><span class="status-live" data-i18n="edu.live">En cours</span>
-              </div>
-              <div class="item__body">
-                <h3 data-i18n="edu.i1.title">BUT Génie Mécanique &amp; Productique</h3>
-                <p class="mono" data-i18n="edu.i1.place">IUT, Brest</p>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="item__meta">
-                <span class="mono">2024 — 2025</span><span class="pill" data-i18n="edu.done">Obtenu</span>
-              </div>
-              <div class="item__body">
-                <h3 data-i18n="edu.i2.title">Brevet d'Initiation à la Mer (BIMer)</h3>
-                <p class="mono" data-i18n="edu.i2.place">IUT, Brest</p>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="item__meta">
-                <span class="mono">2023 — 2024</span><span class="pill" data-i18n="edu.done">Obtenu</span>
-              </div>
-              <div class="item__body">
-                <h3 data-i18n="edu.i3.title">Baccalauréat général</h3>
-                <p class="mono" data-i18n="edu.i3.place">Lycée de l'Elorn, Landerneau</p>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="item__meta">
-                <span class="mono">2022 — 2023</span><span class="pill" data-i18n="edu.done">Obtenu</span>
-              </div>
-              <div class="item__body">
-                <h3 data-i18n="edu.i4.title">Epreuves Anticipées de Français (EAF)</h3>
-                <p class="mono" data-i18n="edu.i4.place">Lycée de l'Elorn, Landerneau</p>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="item__meta">
-                <span class="mono">2022 — 2023</span><span class="pill" data-i18n="edu.done">Obtenu</span>
-              </div>
-              <div class="item__body">
-                <h3 data-i18n="edu.i5.title">Brevet d'Initiation à l'Aéronautique</h3>
-                <p class="mono" data-i18n="edu.i5.place">Aéroclub, Guipavas</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="xp" class="plate" data-chapter="06" data-title="Expérience">
-        <div class="plate__inner">
-          <header class="head">
-            <span class="k">06</span>
-            <h2 class="h2" data-i18n="xp.title">Expérience pro</h2>
-          </header>
-
-          <div class="stack">
-            <div class="item">
-              <div class="item__meta"><span class="mono" data-i18n="xp.summer2025">Été 2025</span></div>
-              <div class="item__body">
-                <h3 data-i18n="xp.i1.title">Employé Espaces Verts</h3>
-                <p class="mono" data-i18n="xp.i1.place">Services Techniques, Landerneau</p>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="item__meta"><span class="mono" data-i18n="xp.summer2024">Été 2024</span></div>
-              <div class="item__body">
-                <h3 data-i18n="xp.i2.title">Employé Signalisation</h3>
-                <p class="mono" data-i18n="xp.i2.place">Services Techniques, Landerneau</p>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="item__meta"><span class="mono" data-i18n="xp.summer2023">Été 2023</span></div>
-              <div class="item__body">
-                <h3 data-i18n="xp.i3.title">Emploi saisonnier — Échalotes</h3>
-                <p class="mono" data-i18n="xp.i3.place">ETA LEOST, Plouedern</p>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="item__meta"><span class="mono" data-i18n="xp.summer2022">Été 2022</span></div>
-              <div class="item__body">
-                <h3 data-i18n="xp.i4.title">Emploi saisonnier — Échalotes</h3>
-                <p class="mono" data-i18n="xp.i4.place">ETA LEOST, Plouedern</p>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="item__meta"><span class="mono" data-i18n="xp.summer2021">Été 2021</span></div>
-              <div class="item__body">
-                <h3 data-i18n="xp.i5.title">Emploi saisonnier — Échalotes</h3>
-                <p class="mono" data-i18n="xp.i5.place">ETA LEOST, Plouedern</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" class="plate" data-chapter="07" data-title="Projets">
+      <section id="projects" class="plate" data-chapter="04" data-title="Projets">
         <div class="plate__inner">
           <header class="head head--row">
             <div class="head__title">
-              <span class="k">07</span>
+              <span class="k">04</span>
               <h2 class="h2" data-i18n="projects.title">Projets</h2>
             </div>
           </header>
@@ -644,7 +433,6 @@
                 <div class="workDetail__text">
                   <h3 class="workDetail__title" id="workDetailTitle">—</h3>
                   <p class="workDetail__desc" id="workDetailDesc">—</p>
-
                   <div class="workDetail__bullets" id="workDetailBullets"></div>
                 </div>
 
@@ -673,29 +461,241 @@
               </p>
               <div class="work__meta mono faint" data-i18n="projects.p3.meta">Scan 3D / CATIA / Prototypage / Fabrication</div>
             </article>
-            
+
             <article class="work work--full company">
-  <div class="work__top">
-    <span class="mono faint">2025</span>
-    <span class="pill company">ENTREPRISE</span>
-  </div>
+              <div class="work__top">
+                <span class="mono faint">2025</span>
+                <span class="pill company">ENTREPRISE</span>
+              </div>
 
-  <div class="projectSkills">
-    <span class="skillBadge spec">Spécifier</span>
-    <span class="skillBadge dev">Développer</span>
-    <span class="skillBadge real">Réaliser</span>
-    <span class="skillBadge explo">Exploiter</span>
-    <span class="skillBadge innov">Innover</span>
-  </div>
+              <div class="projectSkills">
+                <span class="skillBadge spec">Spécifier</span>
+                <span class="skillBadge dev">Développer</span>
+                <span class="skillBadge real">Réaliser</span>
+                <span class="skillBadge explo">Exploiter</span>
+                <span class="skillBadge innov">Innover</span>
+              </div>
 
-  <h3 class="work__title">Projet convoyeur gravitaire</h3>
+              <h3 class="work__title">Projet convoyeur gravitaire</h3>
 
-  <p class="work__desc">
-    Etude d'un convoyeur gravitaire permettant l'évacuation des produits non conformes, tout en respectant le besoin, et les différentes contraintes de positionnment, sécurité...
-  </p>
+              <p class="work__desc">
+                Etude d'un convoyeur gravitaire permettant l'évacuation des produits non conformes, tout en respectant le besoin et les contraintes de positionnement et de sécurité.
+              </p>
 
-  <div class="work__meta mono faint">Projet industriel / Analyse / Conception</div>
-</article>
+              <div class="work__meta mono faint">Projet industriel / Analyse / Conception</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" class="plate" data-chapter="05" data-title="Alternance / Stage">
+        <div class="plate__inner">
+          <section id="earth-section" class="earthSection">
+            <div id="earth-sticky" class="earthSticky">
+              <canvas id="earth-canvas"></canvas>
+              <div id="loading" data-i18n="work.loading">Chargement…</div>
+              <div class="earth-label" id="earth-label">TERRE · 12 742 KM DE DIAMÈTRE</div>
+            </div>
+          </section>
+
+          <header class="head head--row" id="work-content">
+            <div class="head__title">
+              <span class="k">05</span>
+              <h2 class="h2" data-i18n="work.title">Alternance / Stage</h2>
+            </div>
+
+            <div class="tabs" role="tablist" aria-label="Alternance et stage">
+              <button class="tab is-on" type="button" data-tab="alt" aria-selected="true" data-i18n="work.tabs.alt">Alternance</button>
+              <button class="tab" type="button" data-tab="stage" aria-selected="false" data-i18n="work.tabs.stage">Stage</button>
+            </div>
+          </header>
+
+          <div class="panels">
+            <article class="panel is-on" data-panel="alt">
+              <div class="altTop">
+                <div class="altTop__content">
+                  <div class="panel__head">
+                    <span class="mono" data-i18n="work.alt.role">DESSINATEUR PROCESS</span>
+                  </div>
+
+                  <p data-i18n="work.alt.desc">
+                    Dans le cadre de l’obtention du BUT, une alternance doit être réalisée à partir de la deuxième (mon cas) ou troisième année. En alternance chez Sermeta, je participe à l’amélioration des moyens de fabrication existants et à la conception de nouveaux équipements.
+                  </p>
+                </div>
+
+                <div class="companyBrand">
+                  <img src="/images/sermeta.png" alt="Logo Sermeta" class="companyBrand__logo" />
+                </div>
+              </div>
+
+              <div class="split">
+                <div class="box">
+                  <span class="mono" data-i18n="work.box.missions">Missions</span>
+                  <ul>
+                    <li data-i18n="work.alt.m1">Conception 3D &amp; mise en plan</li>
+                    <li data-i18n="work.alt.m2">Optimisation d’outillages / montages</li>
+                    <li data-i18n="work.alt.m3">Recherche de solutions</li>
+                  </ul>
+                </div>
+                <div class="box">
+                  <span class="mono" data-i18n="work.box.goals">Objectifs</span>
+                  <ul>
+                    <li data-i18n="work.alt.o1">Réduction d’un temps de manipulation / simplification d’un montage</li>
+                    <li data-i18n="work.alt.o2">Fiabiliser un système</li>
+                    <li data-i18n="work.alt.o3">Conception de nouveaux équipements</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel" data-panel="stage">
+              <div class="altTop">
+                <div class="altTop__content">
+                  <div class="panel__head">
+                    <span class="mono" data-i18n="work.stage.role">STAGE OPÉRATEUR</span>
+                  </div>
+
+                  <p data-i18n="work.stage.desc">
+                    Dans le cadre de la validation de ma première année de BUT GMP, j’ai effectué un stage opérateur de trois semaines chez Oxymax. L’entreprise couvre plusieurs domaines du GMP : pliage, découpe, chaudronnerie ainsi qu'un bureau d'études et de méthodes. J’ai travaillé en tant qu'opérateur en découpe laser/oxycoupage, en pliage et en chaudronnerie.
+                  </p>
+                </div>
+
+                <div class="companyBrand">
+                  <img src="/images/oxymax.png" alt="Logo Oxymax" class="companyBrand__logo" />
+                </div>
+              </div>
+
+              <div class="split">
+                <div class="box">
+                  <span class="mono" data-i18n="work.box.missions">Missions</span>
+                  <ul>
+                    <li data-i18n="work.stage.m1">Chargement/déchargement des tôles</li>
+                    <li data-i18n="work.stage.m2">Ébavurage &amp; finition (acier, inox, alu)</li>
+                    <li data-i18n="work.stage.m3">Pliage de tôles</li>
+                  </ul>
+                </div>
+                <div class="box">
+                  <span class="mono" data-i18n="work.box.goals">Objectifs</span>
+                  <ul>
+                    <li data-i18n="work.stage.o1">Comprendre le fonctionnement d’une entreprise</li>
+                    <li data-i18n="work.stage.o2">Découvrir les services</li>
+                    <li data-i18n="work.stage.o3">Comprendre les risques opérateur</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="edu" class="plate" data-chapter="06" data-title="Formation">
+        <div class="plate__inner">
+          <header class="head">
+            <span class="k">06</span>
+            <h2 class="h2" data-i18n="edu.title">Formation</h2>
+          </header>
+
+          <div class="stack">
+            <div class="item">
+              <div class="item__meta">
+                <span class="mono">2024 — 2027</span><span class="status-live" data-i18n="edu.live">En cours</span>
+              </div>
+              <div class="item__body">
+                <h3 data-i18n="edu.i1.title">BUT Génie Mécanique &amp; Productique</h3>
+                <p class="mono" data-i18n="edu.i1.place">IUT, Brest</p>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="item__meta">
+                <span class="mono">2024 — 2025</span><span class="pill" data-i18n="edu.done">Obtenu</span>
+              </div>
+              <div class="item__body">
+                <h3 data-i18n="edu.i2.title">Brevet d'Initiation à la Mer (BIMer)</h3>
+                <p class="mono" data-i18n="edu.i2.place">IUT, Brest</p>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="item__meta">
+                <span class="mono">2023 — 2024</span><span class="pill" data-i18n="edu.done">Obtenu</span>
+              </div>
+              <div class="item__body">
+                <h3 data-i18n="edu.i3.title">Baccalauréat général</h3>
+                <p class="mono" data-i18n="edu.i3.place">Lycée de l'Elorn, Landerneau</p>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="item__meta">
+                <span class="mono">2022 — 2023</span><span class="pill" data-i18n="edu.done">Obtenu</span>
+              </div>
+              <div class="item__body">
+                <h3 data-i18n="edu.i4.title">Epreuves Anticipées de Français (EAF)</h3>
+                <p class="mono" data-i18n="edu.i4.place">Lycée de l'Elorn, Landerneau</p>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="item__meta">
+                <span class="mono">2022 — 2023</span><span class="pill" data-i18n="edu.done">Obtenu</span>
+              </div>
+              <div class="item__body">
+                <h3 data-i18n="edu.i5.title">Brevet d'Initiation à l'Aéronautique</h3>
+                <p class="mono" data-i18n="edu.i5.place">Aéroclub, Guipavas</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="xp" class="plate" data-chapter="07" data-title="Expérience">
+        <div class="plate__inner">
+          <header class="head">
+            <span class="k">07</span>
+            <h2 class="h2" data-i18n="xp.title">Expérience pro</h2>
+          </header>
+
+          <div class="stack">
+            <div class="item">
+              <div class="item__meta"><span class="mono" data-i18n="xp.summer2025">Été 2025</span></div>
+              <div class="item__body">
+                <h3 data-i18n="xp.i1.title">Employé Espaces Verts</h3>
+                <p class="mono" data-i18n="xp.i1.place">Services Techniques, Landerneau</p>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="item__meta"><span class="mono" data-i18n="xp.summer2024">Été 2024</span></div>
+              <div class="item__body">
+                <h3 data-i18n="xp.i2.title">Employé Signalisation</h3>
+                <p class="mono" data-i18n="xp.i2.place">Services Techniques, Landerneau</p>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="item__meta"><span class="mono" data-i18n="xp.summer2023">Été 2023</span></div>
+              <div class="item__body">
+                <h3 data-i18n="xp.i3.title">Emploi saisonnier — Échalotes</h3>
+                <p class="mono" data-i18n="xp.i3.place">ETA LEOST, Plouedern</p>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="item__meta"><span class="mono" data-i18n="xp.summer2022">Été 2022</span></div>
+              <div class="item__body">
+                <h3 data-i18n="xp.i4.title">Emploi saisonnier — Échalotes</h3>
+                <p class="mono" data-i18n="xp.i4.place">ETA LEOST, Plouedern</p>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="item__meta"><span class="mono" data-i18n="xp.summer2021">Été 2021</span></div>
+              <div class="item__body">
+                <h3 data-i18n="xp.i5.title">Emploi saisonnier — Échalotes</h3>
+                <p class="mono" data-i18n="xp.i5.place">ETA LEOST, Plouedern</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -781,14 +781,14 @@
                   <span class="j">LinkedIn ↗</span>
                 </a>
                 <a
-  class="btn btn--ghost"
-  href="/cv/yohann-lazou-cv.pdf"
-  target="_blank"
-  rel="noopener"
-  data-i18n="actions.openCv"
->
-  Ouvrir le CV
-</a>
+                  class="btn btn--ghost"
+                  href="/cv/yohann-lazou-cv.pdf"
+                  target="_blank"
+                  rel="noopener"
+                  data-i18n="actions.openCv"
+                >
+                  Ouvrir le CV
+                </a>
               </div>
             </div>
 
