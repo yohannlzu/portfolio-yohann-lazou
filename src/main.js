@@ -1278,10 +1278,3 @@ initEarth().catch((err) => {
   console.error(err);
   if (loadEl) loadEl.textContent = currentLang === "fr" ? "Erreur de chargement" : "Loading error";
 });
-
-base = Path('/mnt/data/portfolio_yohann')
-base.mkdir(exist_ok=True)
-(base / 'index.html').write_text(html, encoding='utf-8')
-(base / 'style.css').write_text(css, encoding='utf-8')
-(base / 'main.js').write_text(js, encoding='utf-8')
-print("created", base)
