@@ -1,3 +1,5 @@
+import "../style.css";
+
 document.documentElement.classList.add("js");
 
 const $ = (selector, scope = document) => scope.querySelector(selector);
