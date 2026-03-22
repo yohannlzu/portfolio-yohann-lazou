@@ -544,16 +544,7 @@ html[data-theme="dark"] .modal__dialog {
   min-height: 82px;
   padding: 12px 18px;
   border-radius: 18px;
-  /* border: 1px solid var(--line); */
-  /* background: color-mix(in srgb, var(--surface-strong) 92%, transparent); */
-  /* box-shadow: var(--shadow-soft); */
 }
-
-/* .company-badge img {
-  max-width: 220px;
-  max-height: 54px;
-  object-fit: contain;
-} */
 
 .company-badge img {
   display: block;
@@ -683,10 +674,6 @@ html[data-theme="dark"] .modal__dialog {
   color: var(--muted);
 }
 
-/* =========================
-   COMPETENCY BOARD
-========================= */
-
 .competency-panel {
   padding: 24px;
   margin-top: 20px;
@@ -799,10 +786,6 @@ html[data-theme="dark"] .competency-head--innov { background: #151925; color: #d
 .competency-col .competency-card:empty {
   visibility: hidden;
 }
-
-/* =========================
-   PROJECTS
-========================= */
 
 .works {
   display: grid;
@@ -1050,17 +1033,42 @@ html[data-theme="dark"] .skillBadge.innov {
   background: color-mix(in srgb, var(--surface-strong) 96%, transparent);
 }
 
+.workDetail__media figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.34) 0%, rgba(0,0,0,0.08) 34%, rgba(0,0,0,0) 60%);
+  pointer-events: none;
+}
+
 .workDetail__media figcaption {
   position: absolute;
   top: 10px;
   left: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  max-width: calc(100% - 24px);
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(10, 10, 10, 0.62);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.16);
   font-family: var(--mono);
-  font-size: 8px;
-  letter-spacing: 0.18em;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(243,243,243,.82);
-  text-shadow: 0 1px 10px rgba(0,0,0,.85);
+  color: #ffffff;
+  text-shadow: none;
   pointer-events: none;
+}
+
+html[data-theme="dark"] .workDetail__media figcaption {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255,255,255,0.14);
+  color: #ffffff;
 }
 
 .mono {
@@ -1091,10 +1099,6 @@ html[data-theme="dark"] .skillBadge.innov {
   background: var(--accent);
   box-shadow: 0 0 6px var(--accent);
 }
-
-/* =========================
-   WORK / EDUCATION / ETC
-========================= */
 
 .tabs {
   display: flex;
@@ -1319,10 +1323,6 @@ html[data-theme="dark"] .skillBadge.innov {
   font-size: 12px;
 }
 
-/* =========================
-   MODAL
-========================= */
-
 .modal {
   position: fixed;
   inset: 0;
@@ -1378,13 +1378,6 @@ html[data-theme="dark"] .skillBadge.innov {
   border-radius: 999px;
 }
 
-.modal__title {
-  margin: 0 0 16px;
-  font-size: clamp(28px, 4vw, 62px);
-  line-height: 0.95;
-  letter-spacing: -0.05em;
-}
-
 .modal__image-wrap {
   border-radius: 20px;
   overflow: hidden;
@@ -1403,10 +1396,6 @@ html[data-theme="dark"] .skillBadge.innov {
   max-height: calc(100vh - 180px);
   object-fit: contain;
 }
-
-/* =========================
-   REVEAL
-========================= */
 
 .reveal {
   opacity: 1;
@@ -1434,10 +1423,6 @@ html[data-theme="dark"] .skillBadge.innov {
     transform: translateY(0);
   }
 }
-
-/* =========================
-   RESPONSIVE
-========================= */
 
 @media (max-width: 1180px) {
   .competency-grid {
@@ -1591,14 +1576,6 @@ html[data-theme="dark"] .skillBadge.innov {
     border-radius: 20px;
   }
 
-  .modal__title {
-    font-size: clamp(24px, 8vw, 38px);
-  }
-
-  .modal__image-wrap {
-    min-height: auto;
-  }
-
   .modal__image-wrap img {
     max-height: calc(100vh - 150px);
   }
@@ -1606,23 +1583,6 @@ html[data-theme="dark"] .skillBadge.innov {
   .panel--work {
     padding-top: 106px;
   }
-
-/* .company-badge {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-
-  display: block;
-  width: auto;
-  min-height: 0;
-  padding: 0;
-  margin: 0;
-
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-} */
 
   .map-card {
     min-height: 280px;

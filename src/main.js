@@ -309,10 +309,6 @@ const I18N = {
       "L’IUT de Brest me permet d’évoluer dans un environnement orienté vers la pratique, la démarche de projet et l’application directe des compétences du GMP.",
     "iut.text2":
       "Entre ressources techniques, projets encadrés, travail en équipe et lien avec l’industrie, cette formation constitue une base solide pour développer une approche concrète de la conception, de la fabrication et de l’innovation.",
-    "iut.tag1": "GMP",
-    "iut.tag2": "Projets",
-    "iut.tag3": "Ateliers",
-    "iut.tag4": "Industrie",
     "iut.link": "LE SITE DE L'IUT",
 
     "skills.title": "Compétences",
@@ -377,19 +373,20 @@ const I18N = {
     "work.alt.role": "Dessinateur process",
     "work.alt.desc":
       "Dans le cadre de l’obtention du BUT, une alternance doit être réalisée à partir de la 2<sup>e</sup> (mon cas) ou 3<sup>e</sup> année. En alternance chez Sermeta, je participe à l’amélioration des moyens de fabrication existants et à la conception de nouveaux équipements.",
-    "work.alt.m1": "Conception 3D & mise en plan",
-    "work.alt.m2": "Optimisation d’outillages / montages",
-    "work.alt.m3": "Recherche de solutions",
-    "work.alt.o1": "Réduction d’un temps de manipulation / simplification d’un montage",
-    "work.alt.o2": "Fiabiliser un système",
-    "work.alt.o3": "Conception de nouveaux équipements",
-    "work.alt.s1": "Analyser un besoin industriel et le traduire en solution technique.",
-    "work.alt.s2": "Concevoir des pièces, ensembles et outillages sur CATIA.",
-    "work.alt.s3": "Réaliser des mises en plan et documents techniques pour la fabrication.",
-    "work.alt.s4":
-      "Améliorer un poste ou un moyen de production selon des contraintes de sécurité, d’ergonomie et d’efficacité.",
-    "work.alt.s5":
-      "Échanger avec les équipes atelier, méthodes et production pour faire avancer un projet.",
+    "work.alt.m1": "Étude du cahier des charges",
+    "work.alt.m2": "Conception 3D",
+    "work.alt.m3": "Mise en plan de la solution",
+    "work.alt.m4": "Chiffrage du projet",
+    "work.alt.m5": "Réalisation des dossiers (demande d'achat...)",
+    "work.alt.o1": "Réduction d'un temps de manipulation",
+    "work.alt.o2": "Réduction des arrêts machines",
+    "work.alt.o3": "Fiabiliser un système",
+    "work.alt.o4": "Développer une solution",
+    "work.alt.o5": "Simplifier un montage",
+    "work.alt.s1": "Déterminer le besoin d'un client dans un cas industriel en collaboration",
+    "work.alt.s2": "Proposer des solutions dans un cas complexe",
+    "work.alt.s3": "Concrétiser une solution complexe en collaboration",
+    "work.alt.s4": "Utiliser les outils permettant d’évaluer les performances",
     "work.stage.role": "Stage opérateur",
     "work.stage.desc":
       "Dans le cadre de la validation de ma première année de BUT GMP, j’ai effectué un stage opérateur de trois semaines chez Oxymax. L’entreprise couvre plusieurs domaines du GMP : pliage, découpe, chaudronnerie ainsi qu'un bureau d'études et de méthodes. J’ai travaillé en tant qu'opérateur en découpe laser/oxycoupage, en pliage et en chaudronnerie.",
@@ -399,14 +396,10 @@ const I18N = {
     "work.stage.o1": "Comprendre le fonctionnement d’une entreprise",
     "work.stage.o2": "Découvrir les services",
     "work.stage.o3": "Comprendre les risques opérateur",
-    "work.stage.s1":
-      "Découvrir concrètement les étapes de transformation de la tôle en atelier.",
-    "work.stage.s2":
-      "Comprendre les contraintes de cadence, de qualité et de sécurité en production.",
-    "work.stage.s3":
-      "Observer et appliquer les gestes de base liés à la découpe, au pliage et à la chaudronnerie.",
-    "work.stage.s4":
-      "Développer de la rigueur, de l’autonomie et une meilleure lecture du fonctionnement d’un atelier industriel.",
+    "work.stage.s1": "Déterminer le besoin d'un client dans un cas simple",
+    "work.stage.s2": "Proposer des solutions dans un cas simple",
+    "work.stage.s3": "Concrétiser une solution simple",
+    "work.stage.s4": "Déterminer les sources d'information en entreprise",
 
     "edu.title": "Formation",
     "edu.i1.title": "BUT Génie Mécanique & Productique",
@@ -495,10 +488,6 @@ const I18N = {
       "The IUT of Brest allows me to evolve in an environment focused on hands-on work, project-based learning and direct application of GMP skills.",
     "iut.text2":
       "Between technical resources, supervised projects, teamwork and strong links with industry, this training provides a solid foundation for developing a practical approach to design, manufacturing and innovation.",
-    "iut.tag1": "GMP",
-    "iut.tag2": "Projects",
-    "iut.tag3": "Workshops",
-    "iut.tag4": "Industry",
     "iut.link": "IUT WEBSITE",
 
     "skills.title": "Skills",
@@ -562,18 +551,20 @@ const I18N = {
     "work.alt.role": "Process designer",
     "work.alt.desc":
       "As part of the B.U.T. degree, an apprenticeship must be completed from the 2<sup>nd</sup> year onward (my case) or in the 3<sup>rd</sup> year. At Sermeta, I contribute to improving existing manufacturing resources and designing new equipment.",
-    "work.alt.m1": "3D design & drawings",
-    "work.alt.m2": "Tooling / fixture optimization",
-    "work.alt.m3": "Solution research",
-    "work.alt.o1": "Reduce handling time / simplify a setup",
-    "work.alt.o2": "Improve system reliability",
-    "work.alt.o3": "Design new equipment",
-    "work.alt.s1": "Analyze an industrial need and translate it into a technical solution.",
-    "work.alt.s2": "Design parts, assemblies and tooling in CATIA.",
-    "work.alt.s3": "Produce drawings and technical documents for manufacturing.",
-    "work.alt.s4":
-      "Improve a workstation or production resource while considering safety, ergonomics and efficiency constraints.",
-    "work.alt.s5": "Communicate with workshop, methods and production teams to move a project forward.",
+    "work.alt.m1": "Review specifications",
+    "work.alt.m2": "3D design",
+    "work.alt.m3": "2D drafting of the solution",
+    "work.alt.m4": "Project costing",
+    "work.alt.m5": "Preparation of project files (purchase request...)",
+    "work.alt.o1": "Reduce handling time",
+    "work.alt.o2": "Reduce machine downtime",
+    "work.alt.o3": "Improve system reliability",
+    "work.alt.o4": "Develop a solution",
+    "work.alt.o5": "Simplify an assembly",
+    "work.alt.s1": "Identify a client need in an industrial case in collaboration",
+    "work.alt.s2": "Propose solutions in a complex case",
+    "work.alt.s3": "Implement a complex solution collaboratively",
+    "work.alt.s4": "Use tools to evaluate performance",
     "work.stage.role": "Operator internship",
     "work.stage.desc":
       "As part of validating my first year of the B.U.T. GMP, I completed a three-week operator internship at Oxymax. The company covers several GMP fields: bending, cutting, boilermaking, as well as design and methods offices. I worked as an operator in laser/oxy-fuel cutting, bending, and boilermaking.",
@@ -583,15 +574,10 @@ const I18N = {
     "work.stage.o1": "Understand how a company operates",
     "work.stage.o2": "Discover the departments",
     "work.stage.o3": "Understand operator risks",
-    "work.stage.s1":
-      "Discover the real workshop steps involved in transforming sheet metal.",
-    "work.stage.s2":
-      "Understand production constraints related to pace, quality and safety.",
-    "work.stage.s3":
-      "Observe and apply basic practices related to cutting, bending and boilermaking.",
-    "work.stage.s4":
-      "Develop rigor, autonomy and a better understanding of how an industrial workshop operates.",
-
+    "work.stage.s1": "Identify a client need in a simple case",
+    "work.stage.s2": "Propose solutions in a simple case",
+    "work.stage.s3": "Implement a simple solution",
+    "work.stage.s4": "Identify information sources in a company",
     "edu.title": "Education",
     "edu.i1.title": "B.U.T. Mechanical & Production Engineering",
     "edu.i1.place": "IUT, Brest",
@@ -744,27 +730,22 @@ const COMPETENCIES = {
 const COMPETENCY_DETAILS = {
   fr: {
     spec: {
-      title: "Compétence Spécifier",
       eyebrow: "Compétence",
       image: "/images/competences/specifier-detail.png"
     },
     dev: {
-      title: "Compétence Développer",
       eyebrow: "Compétence",
       image: "/images/competences/developper-detail.png"
     },
     real: {
-      title: "Compétence Réaliser",
       eyebrow: "Compétence",
       image: "/images/competences/realiser-detail.png"
     },
     explo: {
-      title: "Compétence Exploiter",
       eyebrow: "Compétence",
       image: "/images/competences/exploiter-detail.png"
     },
     innov: {
-      title: "Compétence Innover",
       eyebrow: "Compétence",
       image: "/images/competences/innover-detail.png"
     }
@@ -772,27 +753,22 @@ const COMPETENCY_DETAILS = {
 
   en: {
     spec: {
-      title: "Specify competency",
       eyebrow: "Competency",
       image: "/images/competences/specifier-detail-en.png"
     },
     dev: {
-      title: "Develop competency",
       eyebrow: "Competency",
       image: "/images/competences/developper-detail-en.png"
     },
     real: {
-      title: "Produce competency",
       eyebrow: "Competency",
       image: "/images/competences/realiser-detail-en.png"
     },
     explo: {
-      title: "Operate competency",
       eyebrow: "Competency",
       image: "/images/competences/exploiter-detail-en.png"
     },
     innov: {
-      title: "Innovate competency",
       eyebrow: "Competency",
       image: "/images/competences/innover-detail-en.png"
     }
@@ -897,11 +873,10 @@ function renderCompetencies() {
 (() => {
   const modal = $("#competencyModal");
   const closeBtn = $("#competencyModalClose");
-  const titleEl = $("#competencyModalTitle");
   const eyebrowEl = $("#competencyModalEyebrow");
   const imageEl = $("#competencyModalImage");
 
-  if (!modal || !closeBtn || !titleEl || !eyebrowEl || !imageEl) return;
+  if (!modal || !closeBtn || !eyebrowEl || !imageEl) return;
 
   let currentCompetencyKey = null;
 
@@ -914,9 +889,8 @@ function renderCompetencies() {
 
     currentCompetencyKey = key;
     eyebrowEl.textContent = data.eyebrow;
-    titleEl.textContent = data.title;
     imageEl.src = data.image;
-    imageEl.alt = data.title;
+    imageEl.alt = data.eyebrow;
 
     modal.hidden = false;
     modal.setAttribute("aria-hidden", "false");
@@ -986,7 +960,8 @@ function renderCompetencies() {
         k: "PROJECT_01",
         meta: "SAÉ / 2025",
         title: "Fabrication d'une pièce unitaire",
-        desc: "La SAÉ 2.03, consiste à concevoir et fabriquer une pièce unique en tôle pliée, alliant design et technicité. \n\n De l'idée initiale à la réalisation finale, toutes les étapes sont abordées : modélisation CATIA, préparation des fichiers de découpe, programmation du pliage et simulation, et fabrication en atelier. \n\n Ce projet met en avant à la fois la créativité, la maîtrise des outils numériques et les compétences en fabrication industrielle.",
+        desc:
+          "La SAÉ 2.03, consiste à concevoir et fabriquer une pièce unique en tôle pliée, alliant design et technicité.\n\nDe l'idée initiale à la réalisation finale, toutes les étapes sont abordées : modélisation CATIA, préparation des fichiers de découpe, programmation du pliage et simulation, et fabrication en atelier.\n\nCe projet met en avant à la fois la créativité, la maîtrise des outils numériques et les compétences en fabrication industrielle.",
         bullets: [
           "Conception de l'idée (voiture) — CATIA",
           "Développé de la pièce — CATIA",
@@ -1006,9 +981,9 @@ function renderCompetencies() {
           {
             src: "/images/projets/tole-2.png",
             cap: "Simulation",
-            height: "100px",
-            mobileHeight: "180px",
-            pos: "center center"
+            height: "120px",
+            mobileHeight: "220px",
+            pos: "center 72%"
           },
           {
             src: "/images/projets/tole-3.png",
@@ -1025,7 +1000,8 @@ function renderCompetencies() {
         k: "PROJECT_02",
         meta: "SAÉ / 2026",
         title: "Foil",
-        desc: "La SAÉ 3.02, consiste à concevoir un foil plus performant en s'appuyant sur l'analyse des modèles existants \n\n La démarche inclut la modélisation complète de l'aile sur CATIA à partir de profils NACA, ainsi que la conception des moules nécessaires à sa fabrication. \n\n Ce projet met en avant les compétences en conception surfacique, en modélisation avancée et en développement de produits industriels.",
+        desc:
+          "La SAÉ 3.02, consiste à concevoir un foil plus performant en s'appuyant sur l'analyse des modèles existants.\n\nLa démarche inclut la modélisation complète de l'aile sur CATIA à partir de profils NACA, ainsi que la conception des moules nécessaires à sa fabrication.\n\nCe projet met en avant les compétences en conception surfacique, en modélisation avancée et en développement de produits industriels.",
         bullets: [
           "Traçage des courbes guides",
           "Importation nuage de point",
@@ -1057,7 +1033,8 @@ function renderCompetencies() {
         k: "PROJECT_01",
         meta: "PROJECT / 2025",
         title: "Manufacturing of a single part",
-        desc: "Learning and assessment project: CATIA design, VBend simulation and bending range, cutting documents, and press brake manufacturing.",
+        desc:
+          "The project consists in designing and manufacturing a unique bent sheet metal part, combining design and technical constraints.\n\nFrom the initial idea to the final result, all stages are covered: CATIA modeling, preparation of cutting files, bending programming and simulation, and workshop manufacturing.\n\nThis project highlights creativity, digital tool mastery and industrial manufacturing skills.",
         bullets: [
           "Concept design (car) — CATIA",
           "Part flat pattern — CATIA",
@@ -1077,9 +1054,9 @@ function renderCompetencies() {
           {
             src: "/images/projets/tole-2.png",
             cap: "Simulation",
-            height: "100px",
-            mobileHeight: "180px",
-            pos: "center center"
+            height: "120px",
+            mobileHeight: "220px",
+            pos: "center 72%"
           },
           {
             src: "/images/projets/tole-3.png",
@@ -1096,7 +1073,8 @@ function renderCompetencies() {
         k: "PROJECT_02",
         meta: "PROJECT / 2026",
         title: "Foil",
-        desc: "Creation of a surfacing foil and its mold in CATIA: guide curves, point cloud, sections/surfaces, and fillet parameterization.",
+        desc:
+          "The project consists in designing a higher-performance foil based on the analysis of existing models.\n\nThe work includes full CATIA wing modeling from NACA profiles and the design of the molds required for manufacturing.\n\nThis project highlights surfacing, advanced modeling and industrial product development skills.",
         bullets: [
           "Guide curve tracing",
           "Point cloud import",
